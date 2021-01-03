@@ -292,15 +292,29 @@
 \par\vspace*{270\p@}
 }}
 
- \newcounter{exo}
+
+%% Questions et exercices
+\newcounter{numques}%Création d'un compteur qui s'appelle numques
+\setcounter{numques}{0}%initialisation du compteur
+\newcommand{\question}[1]{%Création d'une macro ayant un paramètre
+\addtocounter{numques}{1}%chaque fois que cette macro est appelée, elle ajoute 1 au compteur numexos
+\textbf{Question\, \textcolor{bleuxp}{\thenumques}\,}\,\textit{#1}}
+
+\newcounter{numexo}%Création d'un compteur qui s'appelle numques
+\setcounter{numexo}{0}%initialisation du compteur
+\newcommand{\exer}[1]{%Création d'une macro ayant un paramètre
+\refstepcounter{numexo} % incrément compteur et label
+%\addtocounter{numexo}{1}%chaque fois que cette macro est appelée, elle ajoute 1 au compteur numexo
+\noindent\textsf{\textbf{Exercice\, \textcolor{bleuxp}{\thenumexo}\, -- \, #1}}}
 
 
-\makeatletter             
-\renewcommand{\subparagraph}{\@startsection{exo}{5}{\z@}%
-                                    {-2ex \@plus-.2ex \@minus .2ex}%
-                                    {0ex}%               
-{\normalfont\bfseries Question \hspace{.7cm} }}
-\makeatother
-\renewcommand{\thesubparagraph}{\arabic{subparagraph}} 
-\makeatletter
+
+% \makeatletter             
+% \renewcommand{\subparagraph}{\@startsection{exo}{5}{\z@}%
+                                    % {-2ex \@plus-.2ex \@minus .2ex}%
+                                    % {0ex}%               
+% {\normalfont\bfseries Question \hspace{.7cm} }}
+% \makeatother
+% \renewcommand{\thesubparagraph}{\arabic{subparagraph}} 
+% \makeatletter
 
