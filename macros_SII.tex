@@ -27,6 +27,13 @@
 \newcommand{\deriv}[2]{ \dfrac{ \dd }{\dd t} \left[  #1\right]_{#2}}
 \newcommand{\dderiv}[2]{ \dfrac{ \dd^2 }{\dd t^2} \left[  #1\right]_{#2}}
 
+% dérivée
+\newcommand{\varphip}{\dot{\varphi}}
+\newcommand{\thetap}{\dot{\theta}}
+\newcommand{\lambdap}{\dot{\lambda}}
+\newcommand{\varphipp}{\ddot{\varphi}}
+\newcommand{\thetapp}{\ddot{\theta}}
+\newcommand{\lambdapp}{\ddot{\lambda}}
 
 
 
@@ -110,7 +117,7 @@
 
 % Vecteur vitesse
  \newcommand{\vectv}[3]{%
-\vect{V\left( {#1} \in {#2}/{#3}\right)}
+\vect{V\left( {#1} , {#2}/{#3}\right)}
 }
 
 % Vecteur force
@@ -147,7 +154,7 @@
 
 % Vecteur accélération
  \newcommand{\vectg}[3]{%
-\vect{\Gamma \left( {#1} \in {#2}/{#3}\right)}
+\vect{\Gamma \left( {#1}, {#2}/{#3}\right)}
 }
 
 % Vecteur omega
@@ -165,4 +172,9 @@
 %Varignon dynamique
  \newcommand{\babard}[4]{%
 \vectmd{#1}{#3}{#4}=\vectmd{#2}{#3}{#4}+\vect{#1#2}\wedge \vectrd{#3}{#4}
+}
+
+%Varignon cinématique
+ \newcommand{\babarv}[4]{%
+\vectv{#1}{#3}{#4}=\vectv{#2}{#3}{#4}+\vect{#1#2}\wedge \vecto{#3}{#4}
 }

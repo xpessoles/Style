@@ -2,9 +2,39 @@
 %	THEOREM STYLES
 %----------------------------------------------------------------------------------------
 
+
+
 % Conflit avec la police adobe
 %\usepackage{amsmath,amsfonts,amssymb,amsthm} % For math equations, theorems, symbols, etc
 \usepackage{amsmath,amsthm}
+
+
+%% Pour le python %%
+\usepackage{listingsutf8}
+
+
+\lstset{language=Python,
+  inputencoding=utf8/latin1,
+  breaklines=true,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange}}  
+\definecolor{mygreen}{rgb}{0,0.6,0}
+
+
+\lstset{
+     literate=%
+         {é}{{\'e}}1    
+         {è}{{\`e}}1    
+         {à}{{\`a}}1    
+         {ô}{{\^o}}1    
+         {ù}{{\`u}}1    
+}
+
+%%
+
 
 \newcommand{\intoo}[2]{\mathopen{]}#1\,;#2\mathclose{[}}
 \newcommand{\ud}{\mathop{\mathrm{{}d}}\mathopen{}}
