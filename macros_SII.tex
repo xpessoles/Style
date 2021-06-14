@@ -183,3 +183,79 @@
  \newcommand{\babarv}[4]{%
 \vectv{#1}{#3}{#4}=\vectv{#2}{#3}{#4}+\vect{#1#2}\wedge \vecto{#3}{#4}
 }
+
+
+%%%% MATHS
+% macros utilisées pour les maths et l'info
+% ce fichier n'est pas concerné par la mise en page.
+\DeclareMathOperator*{\mygrando}{O}
+\DeclareMathOperator{\return}{\mathrm{return}}
+\DeclareMathOperator{\card}{\mathrm{card}}
+\newcommand{\grando}{\mygrando\limits}
+\newcommand{\unif}{\mathcal{U}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+%
+\newcommand{\cA}{\mathscr{A}}
+\newcommand{\cM}{\mathscr{M}}
+\newcommand{\cL}{\mathscr{L}}
+\newcommand{\cS}{\mathscr{S}}
+%
+\newcommand{\e}{\mathrm{e}}
+%
+\newcommand{\eps}{\varepsilon}
+%
+\newcommand{\z}[1]{\Z_{#1}}
+\newcommand{\ztimes}[1]{\Z_{#1}^{\times}}
+\newcommand{\ii}[1]{[\![#1[\![}
+\newcommand{\iif}[1]{[\![#1]\!]}
+\newcommand{\llbr}{\ensuremath{\llbracket}}
+\newcommand{\rrbr}{\ensuremath{\rrbracket}}
+%\newcommand{\p}[1]{\left(#1\right)}
+\newcommand{\ens}[1]{\left\{ #1 \right\}}
+\newcommand{\croch}[1]{\left[ #1 \right]}
+%\newcommand{\of}[1]{\lstinline{#1}}
+% \newcommand{\py}[2]{%
+%   \begin{tabular}{|l}
+%     \lstinline+>>>+\textbf{\of{#1}}\\
+%     \of{#2}
+%   \end{tabular}\par{}
+% }
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\abs}[1]{\left|#1\right|}
+% \fct{A}{B}{x}{e} :
+% A  --> B
+% x |--> e
+
+
+
+% Matrices
+\newcommand{\mat}[1]{
+  \begin{pmatrix}
+    #1
+  \end{pmatrix}
+}
+\newcommand{\inv}{\ensuremath{^{-1}}}
+\newcommand{\bpm}{\begin{pmatrix}}
+\newcommand{\epm}{\end{pmatrix}}
+% Ponctuation et mots pour les équations
+
+\newcommand{\pt}{\enspace .}
+\newcommand{\virg}{\enspace ,}
+\newcommand{\ptvirg}{\enspace ;}
+\newcommand{\ptint}{\enspace ?}
+% \newcommand{\et}{~\textrm{ et }~}
+\newcommand{\soit}{~\textrm{ soit }~}
+% \newcommand{\ou}{~\textrm{ ou }~}
+%\newcommand{\si}{~\textrm{ si }~} %% Incompatible avec siunitx
+\newcommand{\sinon}{~\textrm{ sinon }~}
+\newcommand{\avec}{~\textrm{ avec }~}
+\newcommand{\donc}{~\textrm{ donc }~}
+\newcommand{\tq}{\text{ tq }~}
+
+\newcommand{\norm}[1]{\ensuremath{\left\Vert {#1}\right\Vert}}
+\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
