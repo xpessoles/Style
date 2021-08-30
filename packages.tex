@@ -4,6 +4,8 @@
 
 \usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm,a4paper]{geometry} % Page margins
 
+\usepackage{caption}
+
 \usepackage{graphicx} % Required for including pictures
 \usepackage{float}
 \usepackage[francais]{babel} % English language/hyphenation
@@ -112,3 +114,46 @@
 	\bookmarkget{level}=-1 % part
 	\bookmarksetup{color=bleuxp,bold}%
 \fi}}
+
+%\usepackage{pythontex}
+
+\usepackage{listings}
+\lstloadlanguages{Python}
+
+\lstset{language=Python,
+        columns=fullflexible,
+%	  identifierstyle=\sffamily,
+	  basicstyle=\ttfamily,
+	  keywordstyle=\bf,
+	  commentstyle=\normalfont,
+	  numbers=none, numberstyle=\small, numbersep=30pt, %gestion numérotation
+	  showstringspaces=false,%pour cacher le symbole d'espacement dans les chaînes
+	  breaklines=true, %passage à la ligne automatique
+	  prebreak=\mbox{$\swarrow$},
+%	  includerangemarker=false, % pour inclure partiellement des fichiers
+%	  rangeprefix=\#\ 
+	  }
+
+\newcommand{\lstinputpath}[1]{\lstset{inputpath=#1}}
+%\usepackage{mdframed}
+
+%\newmdenv[skipabove=7pt,
+%skipbelow=7pt,
+%rightline=false,
+%leftline=true,
+%topline=false,
+%bottomline=false,
+%linecolor=gray,
+%backgroundcolor=white,
+%innerleftmargin=5pt,
+%innerrightmargin=5pt,
+%innertopmargin=0pt,
+%leftmargin=0cm,
+%rightmargin=0cm,
+%linewidth=4pt,
+%innerbottommargin=5pt]{pyBox}
+
+\usepackage{xcolor} % Required for specifying colors by name
+%\definecolor{ocre}{RGB}{243,102,25} % Define the orange color used for highlighting throughout the book
+ \definecolor{ocre}{RGB}{49,133,156} % Couleur ''bleue''
+\definecolor{violetf}{RGB}{112,48,160} % Couleur ''violet''
