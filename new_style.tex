@@ -310,7 +310,11 @@
  
  
  \newcounter{cptactivite}
-\newcommand{\activite}[1]{{\stepcounter{cptactivite}\bf \vspace{0.5cm}{\color{ocre}\begin{Large}Activité \arabic{cptactivite} : \end{Large}} \begin{large}#1\end{large}\vspace{0.5cm}}}
+%\newcommand{\activite}[1]{{\stepcounter{cptactivite}\bf \vspace{0.5cm}{\color{ocre}\begin{Large}Activité \arabic{cptactivite} : \end{Large}} \begin{large}#1\end{large}\vspace{0.5cm}}}
+
+\newcommand{\activite}[1]{\stepcounter{cptactivite}\noindent  \textbf{\large Activité {\color{ocre} \arabic{cptactivite}}  -- #1} \vspace{0.25cm}}
+
+%\bf {\noindent \color{ocre}\begin{Large}Activité \arabic{cptactivite} : \end{Large}} \begin{large}#1\end{large}}}
 
 % \makeatletter             
 % \renewcommand{\subparagraph}{\@startsection{exo}{5}{\z@}%
