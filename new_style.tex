@@ -297,7 +297,8 @@
 \setcounter{numques}{0}%initialisation du compteur
 \newcommand{\question}[1]{%Création d'une macro ayant un paramètre
 \addtocounter{numques}{1}%chaque fois que cette macro est appelée, elle ajoute 1 au compteur numexos
-\textbf{Question\, \textcolor{bleuxp}{\thenumques}\,}\,\textit{#1}\\{\vspace{0cm}}}
+\vspace{.15cm}
+\textbf{\indent Question\, \textcolor{bleuxp}{\thenumques}\,}\,\textit{#1}\\{\vspace{0cm}}}
 
 \newcounter{numexo}%Création d'un compteur qui s'appelle numques
 \setcounter{numexo}{0}%initialisation du compteur
@@ -312,7 +313,7 @@
  \newcounter{cptactivite}
 %\newcommand{\activite}[1]{{\stepcounter{cptactivite}\bf \vspace{0.5cm}{\color{ocre}\begin{Large}Activité \arabic{cptactivite} : \end{Large}} \begin{large}#1\end{large}\vspace{0.5cm}}}
 
-\newcommand{\activite}[1]{\stepcounter{cptactivite}\noindent  \textbf{\large Activité {\color{ocre} \arabic{cptactivite}}  -- #1} \vspace{0.25cm}}
+\newcommand{\activite}[1]{\stepcounter{cptactivite}\vspace{0.25cm} \noindent  \textbf{\large Activité {\color{ocre} \arabic{cptactivite}}  -- #1} \vspace{0.25cm}}
 
 %\bf {\noindent \color{ocre}\begin{Large}Activité \arabic{cptactivite} : \end{Large}} \begin{large}#1\end{large}}}
 
