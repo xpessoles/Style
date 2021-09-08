@@ -97,8 +97,6 @@
 %----------------------------------------------------------------------------------------
 
 
-
-
 \pagestyle{fancy}
  \renewcommand{\headrulewidth}{0pt}
  \fancyhead{}
@@ -134,6 +132,8 @@
 \noindent\footnotesize{{\xxauteur}}
 \end{minipage}}
 
+% ONGLETS (Placé dans le pied de page)
+
 \fancyfoot[R]{\footnotesize{\xxpied}
 \ifthenelse{\isodd{\value{page}}}{
 \begin{tikzpicture}[overlay]
@@ -156,26 +156,7 @@
 %
 % Removes the header from odd empty pages at the end of chapters
 \makeatletter
-%\renewcommand{\cleardoublepage}{
-%\clearpage\ifodd\c@page\else
-%\hbox{}
-%\vspace*{\fill}
-%\thispagestyle{empty}
-%\newpage
-%\fi}
 
-%\fancypagestyle{plain}{%
-%\fancyhf{} % vide l’en-tête et le pied~de~page.
-%%\fancyfoot[C]{\bfseries \thepage} % numéro de la page en cours en gras
-%% et centré en pied~de~page.
-%\fancyfoot[R]{\footnotesize{\xxpied}}
-%\fancyfoot[C]{\rule{12cm}{.5pt}}
-%\renewcommand{\footrulewidth}{0.2pt}
-%\fancyfoot[C]{\footnotesize{\bfseries \thepage}}
-%\fancyfoot[L]{ 
-%\begin{minipage}[c]{.4\linewidth}
-%\noindent\footnotesize{{\xxauteur}}
-%\end{minipage}}}
 
 \fancypagestyle{plain}{%
 \fancyhf{} % vide l’en-tête et le pied~de~page.
