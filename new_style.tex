@@ -291,6 +291,11 @@
  \newcounter{exo}
  
  
+  \newcounter{cpexo}
+ 
+\newcommand{\exo}[1]{\stepcounter{cpexo}\vspace{0.25cm} \noindent  \textsf{\textbf{\large Exercice {\color{ocre} \arabic{cpexo}}  -- #1}} \vspace{0.25cm}} 
+ 
+ 
  \newcounter{cptactivite}
 %\newcommand{\activite}[1]{{\stepcounter{cptactivite}\bf \vspace{0.5cm}{\color{ocre}\begin{Large}Activité \arabic{cptactivite} : \end{Large}} \begin{large}#1\end{large}\vspace{0.5cm}}}
 
@@ -300,8 +305,8 @@
 
 % \makeatletter             
 % \renewcommand{\subparagraph}{\@startsection{exo}{5}{\z@}%
-                                    % {-2ex \@plus-.2ex \@minus .2ex}%
-                                    % {0ex}%               
+%                                     {-2ex \@plus-.2ex \@minus .2ex}%
+%                                     {0ex}%               
 % {\normalfont\bfseries Question \hspace{.7cm} }}
 % \makeatother
 % \renewcommand{\thesubparagraph}{\arabic{subparagraph}} 
