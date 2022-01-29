@@ -445,7 +445,30 @@ innerbottommargin=5pt]{sqlBox}
 \newenvironment{defi}{\begin{dBox}\begin{definitionT}}{\end{definitionT}\end{dBox}}	
 \newenvironment{demo}{\begin{demoBox}\begin{demoT}}{\end{demoT}\end{demoBox}}	
 %\newenvironment{exemple}{\begin{exempleT}}{\hfill{\tiny\ensuremath{\blacksquare}}\end{exempleT}}	
-\newenvironment{exemple2}{\begin{exempleT}}{\hfill{\tiny\ensuremath{\blacksquare}}\end{exempleT}}		
+%\newenvironment{exemple2}[1]{\begin{exempleT}}{\hfill{\tiny\ensuremath{\blacksquare}}\end{exempleT}}
+
+
+
+				
+				
+				%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DEFINITION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{fond_definition}{RGB}{255,255,255}
+\definecolor{bord_definition}{RGB}{0,0,0} 
+
+\newcounter{cptDefinition}	%Compteur de definitions
+
+\newenvironment{definition2}[1][]	{\refstepcounter{cptDefinition}
+					\begin{center}
+						\begin{minipage}{\tailleDesBoites\linewidth}
+							\begin{bclogo}[couleur=fond_definition,couleurBord=bord_definition,arrondi=0.2,logo=\bcplume]{Définition \thecptDefinition\ : \emph{#1}}}
+					{		\end{bclogo}
+						\end{minipage}
+					\end{center}}
+
+		
 \newenvironment{corollary}{\begin{cBox}\begin{corollaryT}}{\end{corollaryT}\end{cBox}}
 \newenvironment{hypo}{\begin{hyBox}\begin{hypoT}}{\end{hypoT}\end{hyBox}}	\newenvironment{exemple}{\begin{exBox}\begin{exempleT}}{\hfill{\tiny\ensuremath{\blacksquare}}\end{exempleT}\end{exBox}}	
 \newenvironment{titrepartie}{\begin{pBox}\begin{titrepartieT}}{\end{titrepartieT}\end{pBox}}	
@@ -490,4 +513,84 @@ innerbottommargin=5pt]{sqlBox}
 
 %\newtheorem{titrepartieT}[]{}
 %\newenvironment{titrepartie}{\begin{pBox}\begin{titrepartieT}}{\end{titrepartieT}\end{pBox}}	
+
+\usepackage{algpseudocode}
+\usepackage{algorithm2e}
+%Environnement Emilien
+\definecolor{gris25}{gray}{0.75}
+\definecolor{bleu}{RGB}{50,50,220}
+\definecolor{bleuf}{RGB}{42,94,171}
+\definecolor{bleuc}{RGB}{231,239,247}
+\definecolor{rougef}{RGB}{185,18,27}
+\definecolor{rouge}{RGB}{255,40,40}
+\definecolor{rougec}{RGB}{255,230,231}
+\definecolor{vertf}{RGB}{103,126,82}
+\definecolor{vert}{RGB}{40,150,40}
+\definecolor{vertc}{RGB}{220,255,191}
+\definecolor{violetf}{RGB}{112,48,160}
+\definecolor{violetc}{RGB}{230,224,236}
+\definecolor{jaunec}{RGB}{220,255,191}
+\definecolor{jaune}{RGB}{255,246,100}
+
+
+\newcommand{\tailleDesBoites}{0.9}%pourcentage de la taille de la ligne
+
+\usepackage{colortbl}
+
+\definecolor{fond_exemple}{RGB}{255,255,255} %Couleur du fond
+\definecolor{bord_exemple}{RGB}{0,0,0} %Couleur du fond
+
+\usepackage[tikz]{bclogo}		%Pour faire des boites avec logo (remarques, etc...)
+\usepackage{moreverb}
+\usepackage{multirow}
+
+
+
+\newcounter{cptExemple}
+\newenvironment{exemple2}[1][]	{\refstepcounter{cptExemple}
+				\begin{center}
+					\begin{minipage}{0.95\linewidth}
+						\begin{bclogo}[couleur=fond_exemple,couleurBord=bord_exemple,arrondi=0.2,logo=\bcbook]{Exemple \thecptExemple\ : \emph{#1}}}
+				{		\end{bclogo}
+					\end{minipage}
+				\end{center}}
+				
+				
+				\newcounter{cptAlgo}
+\newenvironment{algorithme}[1][]	{\refstepcounter{cptAlgo}
+				\begin{center}
+					\begin{minipage}{0.95\linewidth}
+						\begin{bclogo}[couleur=fond_exemple,couleurBord=bord_exemple,arrondi=0.2,logo=\bcbook]{Algorithme \thecptAlgo\ : \emph{#1}}}
+				{		\end{bclogo}
+					\end{minipage}
+				\end{center}}
+				
+				
+\newsavebox{\BBbox}
+\newenvironment{DDbox}[1]{
+\begin{lrbox}{\BBbox}\begin{minipage}{14cm}}
+{\end{minipage}\end{lrbox}\noindent\colorbox{gray!20}{\usebox{\BBbox}} \\
+[.5cm]}
+
+\newenvironment{DDbox2}[1]{
+\begin{lrbox}{\BBbox}\begin{minipage}{12cm}}
+{\end{minipage}\end{lrbox}\noindent\colorbox{gray!20}{\usebox{\BBbox}} \\
+[.5cm]}
+
+\newenvironment{DDbox3}[1]{
+\begin{lrbox}{\BBbox}\begin{minipage}{8cm}}
+{\end{minipage}\end{lrbox}\noindent\colorbox{gray!20}{\usebox{\BBbox}} \\
+[.5cm]}
+
+\newenvironment{DDbox4}[1]{
+\begin{lrbox}{\BBbox}\begin{minipage}{5cm}}
+{\end{minipage}\end{lrbox}\noindent\colorbox{gray!20}{\usebox{\BBbox}} \\
+[.5cm]}
+
+\newenvironment{DDbox5}[1]{
+\begin{lrbox}{\BBbox}\begin{minipage}{18cm}}
+{\end{minipage}\end{lrbox}\noindent\colorbox{gray!20}{\usebox{\BBbox}} \\
+[.5cm]}
+
+
 
