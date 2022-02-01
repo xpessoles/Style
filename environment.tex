@@ -560,7 +560,7 @@ innerbottommargin=5pt]{sqlBox}
 \newenvironment{algorithme}[1][]	{\refstepcounter{cptAlgo}
 				\begin{center}
 					\begin{minipage}{0.95\linewidth}
-						\begin{bclogo}[couleur=fond_exemple,couleurBord=bord_exemple,arrondi=0.2,logo=\bcbook]{Algorithme \thecptAlgo\ : \emph{#1}}}
+						\begin{bclogo}[couleur=fond_exemple,couleurBord=bord_exemple,arrondi=0.2,logo=\bccrayon]{Algorithme \thecptAlgo\ : \emph{#1}}}
 				{		\end{bclogo}
 					\end{minipage}
 				\end{center}}
@@ -591,6 +591,12 @@ innerbottommargin=5pt]{sqlBox}
 \begin{lrbox}{\BBbox}\begin{minipage}{18cm}}
 {\end{minipage}\end{lrbox}\noindent\colorbox{gray!20}{\usebox{\BBbox}} \\
 [.5cm]}
+
+\newenvironment{pythonshell}
+{\begin{shaded}
+\textit{Python shell}\\
+\ttfamily}
+{\normalfont\end{shaded}\vspace{0.2cm}}
 
 
 
