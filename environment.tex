@@ -2,16 +2,12 @@
 %	THEOREM STYLES
 %----------------------------------------------------------------------------------------
 
-
-
 % Conflit avec la police adobe
 %\usepackage{amsmath,amsfonts,amssymb,amsthm} % For math equations, theorems, symbols, etc
 \usepackage{amsmath,amsthm}
 
-
 %% Pour le python %%
 \usepackage{listingsutf8}
-
 
 \lstset{language=Python,
   inputencoding=utf8/latin1,
@@ -26,7 +22,6 @@
   backgroundcolor=\color{gray!10},frame=leftline,rulecolor=\color{gray}}  
   
 \definecolor{mygreen}{rgb}{0,0.6,0}
-
 
 \lstset{
      literate=%
@@ -442,7 +437,7 @@ innerbottommargin=5pt]{sqlBox}
 \newenvironment{definition}{\begin{dBox}\begin{definitionT}}{\end{definitionT}\end{dBox}}
 \newenvironment{prop}{\begin{dBox}\begin{propT}}{\end{propT}\end{dBox}}	
 \newenvironment{rappel}{\begin{dBox}\begin{rappelT}}{\end{rappelT}\end{dBox}}	
-\newenvironment{defi}{\begin{dBox}\begin{definitionT}}{\end{definitionT}\end{dBox}}	
+\newenvironment{defi}[1]{\begin{dBox}\begin{definitionT} \small{\textbf{\textsf{#1}}} \hspace{.2cm} }{\end{definitionT}\end{dBox}}	
 \newenvironment{demo}{\begin{demoBox}\begin{demoT}}{\end{demoT}\end{demoBox}}	
 %\newenvironment{exemple}{\begin{exempleT}}{\hfill{\tiny\ensuremath{\blacksquare}}\end{exempleT}}	
 %\newenvironment{exemple2}[1]{\begin{exempleT}}{\hfill{\tiny\ensuremath{\blacksquare}}\end{exempleT}}
