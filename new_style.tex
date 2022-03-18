@@ -276,22 +276,25 @@
 %% Questions et exercices
 \newcounter{numques}%Création d'un compteur qui s'appelle numques
 \setcounter{numques}{0}%initialisation du compteur
+
 \newcommand{\question}[1]{%Création d'une macro ayant un paramètre
-\addtocounter{numques}{1}%chaque fois que cette macro est appelée, elle ajoute 1 au compteur numexos
+\refstepcounter{numques}
+%\addtocounter{numques}{1}%chaque fois que cette macro est appelée, elle ajoute 1 au compteur numexos
 \vspace{.15cm}
 \textbf{\indent Question\, \textcolor{bleuxp}{\thenumques}\,}\,\textit{#1}\\{\vspace{0cm}}}
+
 
 \newcounter{numexo}%Création d'un compteur qui s'appelle numques
 \setcounter{numexo}{0}%initialisation du compteur
 \newcommand{\exer}[1]{%Création d'une macro ayant un paramètre
 \refstepcounter{numexo} % incrément compteur et label
+
 %\addtocounter{numexo}{1}%chaque fois que cette macro est appelée, elle ajoute 1 au compteur numexo
 \noindent\textsf{\textbf{Exercice\, \textcolor{bleuxp}{\thenumexo}\, -- \, #1}}}
 
- \newcounter{exo}
- 
- 
-  \newcounter{cpexo}
+\newcounter{exo}
+
+\newcounter{cpexo}
  
 \newcommand{\exo}[1]{\stepcounter{cpexo}\vspace{0.25cm} \noindent  \textsf{\textbf{\large Exercice {\color{bleuxp} \arabic{cpexo}}  -- #1}} \vspace{0.25cm}} 
  
