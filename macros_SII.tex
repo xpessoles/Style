@@ -41,7 +41,8 @@
 \newcommand{\thetapp}{\ddot{\theta}}
 \newcommand{\lambdapp}{\ddot{\lambda}}
 
-
+% Indice en mode texte dans des équations
+\newcommand{\indice}[2]{{#1}_{\text{#2}}}
 
 \newcommand{\inertie}[2]{I_{#1}\left( #2\right)}
 \newcommand{\matinertie}[7]{
@@ -211,6 +212,9 @@
 \newcommand{\mccel}{U(t)=E(t)+RI(t)+L\dfrac{\dd i(t)}{\dd t}}
 %\newcommand{\mccmeca}{J \dfrac{\dd \omega(t)}{\dd t}=C }
 
+
+% Théorème de la valeur finale
+\newcommand{\tvf}[1]{\lim\limits_{t\to +\infty} #1(t) = \lim\limits_{p\to 0} p #1(p)}
 
 %%%% MATHS
 % macros utilisées pour les maths et l'info
