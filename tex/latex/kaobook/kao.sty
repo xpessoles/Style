@@ -304,7 +304,55 @@
 	{\makebox[\textwidth][l]{\thepage}}%
 }
 
-% Header style with an empty header and the page number in the footer
+% En tetes et pieds de page Xavier
+\newpagestyle{xp.scrheadings}{%
+	{\smash{\hspace{-\headmarginparwidth}\hspace{-\headmarginparsep}\makebox[\headtotal][l]{%
+		\makebox[7\hscale][r]{\thepage}%
+		\makebox[3\hscale]{}\rule[-1mm]{0.5pt}{19\vscale-1mm}\makebox[3\hscale]{}%
+		\makebox[\headtextwidth][l]{\leftmark}}}}%
+	{\smash{\makebox[0pt][l]{\makebox[\headtotal][r]{%
+		\makebox[\headtextwidth][r]{\hfill\rightmark}%
+		\makebox[3\hscale]{}\rule[-1mm]{0.5pt}{19\vscale-1mm}\makebox[3\hscale]{}%
+		\makebox[7\hscale][l]{\thepage}}}}}%
+	{\smash{\makebox[0pt][l]{\makebox[\headtotal][r]{%
+		\makebox[\headtextwidth][r]{\hfill\rightmark}%
+		\makebox[3\hscale]{}\rule[-1mm]{0.5pt}{19\vscale-1mm}\makebox[3\hscale]{}%
+		\makebox[7\hscale][l]{\thepage}}}}}%
+}{%Pages impaires puis paires puis ??
+	{\smash{\hspace{-\headmarginparwidth}\hspace{-\headmarginparsep}\makebox[\headtotal][l]{%
+		\makebox[7\hscale][r]{
+			\begin{tabular}{l}
+			\\ \includegraphics[width=1.5cm]{logo_lycee} \\ 
+			\end{tabular}
+			}%
+		\makebox[3\hscale]{}\rule[-14mm]{0.5pt}{19\vscale-1mm}\makebox[3\hscale]{}%
+		\makebox[\headtextwidth][l]{
+			\begin{tabular}{l} 
+			\\ Xavier Pessoles \\ 
+			Sciences Industrielles de l'Ingénieur
+			\end{tabular}
+			}}}}%
+	{\smash{\makebox[0pt][l]{\makebox[\headtotal][r]{%
+		\makebox[\headtextwidth][r]{
+			\hfill 
+			\begin{tabular}{r}
+			\\ Xavier Pessoles \\ 
+			Sciences Industrielles de l'Ingénieur
+			\end{tabular}
+			}%
+		\makebox[3\hscale]{}\rule[-14mm]{0.5pt}{19\vscale-1mm}\makebox[3\hscale]{}%
+		\makebox[7\hscale][l]{
+		\begin{tabular}{c}
+			\\ \includegraphics[width=1.5cm]{logo_lycee} \\ 
+			\end{tabular}
+		}}}}}%
+	{\smash{\makebox[0pt][l]{\makebox[\headtotal][r]{%
+		\makebox[\headtextwidth][r]{\hfill\rightmark}%
+		\makebox[3\hscale]{}\rule[-1mm]{0.5pt}{19\vscale-1mm}\makebox[3\hscale]{}%
+		\makebox[7\hscale][l]{ICI1}}}}}%
+}
+
+
 \newpagestyle{centeredpagenum.scrheadings}{%
 	{}%
 	{}%
