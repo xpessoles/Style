@@ -1,7 +1,15 @@
 %%----------------------------------------------------------------------------------------
 %%	VARIOUS REQUIRED PACKAGES AND CONFIGURATIONS
 %%----------------------------------------------------------------------------------------
-%
+\usepackage{pifont} 	% Pour les dinglist
+\usepackage{xargs}	% Pour arguments optionnels multiples, demandé par newcommandx de l'UPSTI
+\usepackage{siunitx}
+\sisetup{output-decimal-marker = {,}}
+
+% Shemas blocs Papanicola
+\usepackage{schemabloc}
+\usepackage{bodegraph}
+
 %\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm,a4paper]{geometry} % Page margins
 %
 %\usepackage{caption}
@@ -23,15 +31,14 @@
 %\definecolor{violetf}{RGB}{112,48,160} % Couleur ''violet''
 %
 %\usepackage{enumitem}
-\usepackage{pifont} % Pour les dinglist
+
 %\usepackage{multicol}
 %\usepackage{array} % Centrage vertical dans les tableaux
-%\usepackage{schemabloc}
 %
 %% Requis par UPSTI pedagogique
 %\usepackage{etoolbox}         % Scripting
 %\usepackage{ifthen}           % Scripting
-\usepackage{xargs}            % Pour arguments optionnels multiples, demandé par newcommandx de l'UPSTI
+
 %\usepackage{tabularx}         % Tableaux avancés
 %
 %% Pour générer des QRCODE.
@@ -57,8 +64,7 @@
 %%----------------------------------------------------------------------------------------
 %\usepackage{bm}
 
-\usepackage{siunitx}
-\sisetup{output-decimal-marker = {,}}
+
 
 %\usepackage{textcomp}
 %
