@@ -1,6 +1,11 @@
 % kaobox
 \RequirePackage[most]{tcolorbox}
 
+\definecolor{bleuxp}{RGB}{0,84,127}
+%\definecolor{bleuxpc}{RGB}{223,227,235}
+%\definecolor{bleuxp}{RGB}{49,133,156}
+\definecolor{bleuxpc}{RGB}{234,243,245}
+
 \newtcolorbox{warn}[1][]{
 	breakable,
 	before skip=1.5\topskip,
@@ -93,14 +98,13 @@
 	sharp corners,
 	boxrule=0pt,
 	titlerule=.4pt,
-	colback=RoyalBlue!25!White,
-	colbacktitle=RoyalBlue!25!White,
+	colback=bleuxpc,
+	colbacktitle=bleuxpc,
 	coltitle=black,
-	colframe=black,
+	colframe=bleuxp,
 	fonttitle=\bfseries,
-	#1
+	title = Définition  -- #1
 }
-
 
 \newtcolorbox{methode}[1][]{
 	breakable,
@@ -119,12 +123,12 @@
 	sharp corners,
 	boxrule=0pt,
 	titlerule=.4pt,
-	colback=RoyalBlue!25!White,
-	colbacktitle=RoyalBlue!25!White,
+	colback=bleuxpc,
+	colbacktitle=bleuxpc,
 	coltitle=black,
-	colframe=black,
+	colframe=bleuxp,
 	fonttitle=\bfseries,
-	#1
+	title = Méthode  -- #1
 }
 
 \newtcolorbox{resultat}[1][]{
@@ -144,12 +148,12 @@
 	sharp corners,
 	boxrule=0pt,
 	titlerule=.4pt,
-	colback=RoyalBlue!25!White,
-	colbacktitle=RoyalBlue!25!White,
+	colback=bleuxpc,
+	colbacktitle=bleuxpc,
 	coltitle=black,
-	colframe=black,
+	colframe=bleuxp,
 	fonttitle=\bfseries,
-	#1
+	title = Résultat  -- #1
 }
 
 \newtcolorbox{prop}[1][]{
