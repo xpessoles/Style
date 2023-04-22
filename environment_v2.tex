@@ -1,3 +1,6 @@
+
+\usepackage{subfig}
+
 % kaobox
 \RequirePackage[most]{tcolorbox}
 
@@ -5,7 +8,11 @@
 \definecolor{bleuxpc}{RGB}{234,243,245}
 \definecolor{orangexp}{RGB}{253,173,87}
 \definecolor{orangexpc}{RGB}{254,230,204}
+\definecolor{violetxp}{RGB}{128,0,128}
+\definecolor{violetxpc}{RGB}{242,230,242}
 
+\definecolor{rougexp}{RGB}{238,104,93}
+\definecolor{rougexpc}{RGB}{247,184,179}
 
 \setlength{\columnseprule}{0pt}
 
@@ -59,6 +66,31 @@
 	#1
 }
 
+\newtcolorbox{solution}[1][]{
+	breakable,
+	before skip=1.5\topskip,
+	after skip=1.5\topskip,
+	left skip=0pt,
+	right skip=0pt,
+	left=4pt,
+	right=4pt,
+	top=2pt,
+	bottom=2pt,
+	lefttitle=4pt,
+	righttitle=4pt,
+	toptitle=2pt,
+	bottomtitle=2pt,
+	sharp corners,
+	boxrule=0pt,
+	titlerule=.4pt,
+	colback=violetxpc,
+	colbacktitle=violetxpc,
+	coltitle=black,
+	colframe=violetxp,
+	fonttitle=\bfseries,
+	title = \'Eléments de correction #1
+}
+
 \newtcolorbox{corrige}[1][]{
 	breakable,
 	before skip=1.5\topskip,
@@ -76,12 +108,12 @@
 	sharp corners,
 	boxrule=0pt,
 	titlerule=.4pt,
-	colback=RoyalBlue!25!White,
-	colbacktitle=RoyalBlue!25!White,
+	colback=violetxpc,
+	colbacktitle=violetxpc,
 	coltitle=black,
-	colframe=black,
+	colframe=violetxp,
 	fonttitle=\bfseries,
-	#1
+	title = Correction #1
 }
 
 \newtcolorbox{defi}[1][]{
@@ -107,6 +139,31 @@
 	colframe=bleuxp,
 	fonttitle=\bfseries,
 	title = Définition -- #1
+}
+
+\newtcolorbox{obj}[1][]{
+	breakable,
+	before skip=1.5\topskip,
+	after skip=1.5\topskip,
+	left skip=0pt,
+	right skip=0pt,
+	left=4pt,
+	right=4pt,
+	top=2pt,
+	bottom=2pt,
+	lefttitle=4pt,
+	righttitle=4pt,
+	toptitle=2pt,
+	bottomtitle=2pt,
+	sharp corners,
+	boxrule=0pt,
+	titlerule=.4pt,
+	colback = rougexpc!25!White,
+	colbacktitle = rougexpc!25!White,
+	coltitle=black,
+	colframe=rougexp,
+	fonttitle=\bfseries,
+	title = Objectif #1
 }
 
 \newtcolorbox{methode}[1][]{
@@ -207,4 +264,30 @@
 	colframe=black,
 	fonttitle=\bfseries,
 	#1
+}
+
+
+\newtcolorbox{remarque}[1][]{
+	breakable,
+	before skip=1.5\topskip,
+	after skip=1.5\topskip,
+	left skip=0pt,
+	right skip=0pt,
+	left=4pt,
+	right=4pt,
+	top=2pt,
+	bottom=2pt,
+	lefttitle=4pt,
+	righttitle=4pt,
+	toptitle=2pt,
+	bottomtitle=2pt,
+	sharp corners,
+	boxrule=0pt,
+	titlerule=.4pt,
+	colback=bleuxpc,
+	colbacktitle=bleuxpc,
+	coltitle=black,
+	colframe=black,
+	fonttitle=\bfseries,
+	title = Remarque #1
 }
