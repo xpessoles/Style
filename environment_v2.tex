@@ -15,6 +15,14 @@
 
 \setlength{\columnseprule}{0pt}
 
+
+% Pieds de page en couleur
+\usepackage{eso-pic}
+\AddToShipoutPictureBG{\color{bleuxpc}%
+%\AtPageUpperLeft{\rule[-20mm]{\paperwidth}{20mm}}%
+\AtPageLowerLeft{\rule{\paperwidth}{16mm}}}
+
+
 \newtcolorbox{warn}[1][]{
 	breakable,
 	before skip=1.5\topskip,

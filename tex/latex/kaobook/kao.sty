@@ -304,46 +304,75 @@
 	{\makebox[\textwidth][l]{\thepage}}%
 }
 
+
+
+
+\newpagestyle{xp.test}{%
+	%%% HAUTS DE PAGE %%%
+	% PAGES PAIRES
+	{\colorbox{red}{A} }%
+	%
+	%% PAGES IMPAIRES
+	{B}%
+	{C}%
+}{%	
+	%%% BAS DE PAGE %%%
+	% PAGES PAIRES
+	{\colorbox{red}{D}}%
+	%% PAGES IMPAIRES
+	{E}%
+	{F}%
+}
+
+
+
+
+\definecolor{bleuxp}{RGB}{0,84,127}
+\definecolor{bleuxpc}{RGB}{234,243,245}
+
+
+
 % En tetes et pieds de page Xavier
 \newpagestyle{xp.scrheadings}{%
 	{\smash{\hspace{-\headmarginparwidth}\hspace{-\headmarginparsep}\makebox[\headtotal][l]{%
-		\makebox[7\hscale][r]{\thepage}%
-		\makebox[3\hscale]{}\rule[-1mm]{0.5pt}{19\vscale-1mm}\makebox[3\hscale]{}%
-		\makebox[\headtextwidth][l]{\leftmark}}}}%
+		\makebox[7\hscale][r]{\textcolor{bleuxp}{\thepage}}%
+		\makebox[3\hscale]{}\textcolor{bleuxp}{\rule[-1mm]{0.5pt}{19\vscale-1mm}}\makebox[3\hscale]{}%
+		\makebox[\headtextwidth][l]{\textcolor{bleuxp}{\leftmark}}}}}%
 	{\smash{\makebox[0pt][l]{\makebox[\headtotal][r]{%
-		\makebox[\headtextwidth][r]{\hfill\rightmark}%
-		\makebox[3\hscale]{}\rule[-1mm]{0.5pt}{19\vscale-1mm}\makebox[3\hscale]{}%
-		\makebox[7\hscale][l]{\thepage}}}}}%
+		\makebox[\headtextwidth][r]{\hfill\textcolor{bleuxp}{\rightmark}}%
+		\makebox[3\hscale]{}\textcolor{bleuxp}{\rule[-1mm]{0.5pt}{19\vscale-1mm}}\makebox[3\hscale]{}%
+		\makebox[7\hscale][l]{\textcolor{bleuxp}{\thepage}}}}}}%
 	{\smash{\makebox[0pt][l]{\makebox[\headtotal][r]{%
-		\makebox[\headtextwidth][r]{\hfill\rightmark}%
+		\makebox[\headtextwidth][r]{\hfill\textcolor{bleuxp}{\rightmark}}%
 		\makebox[3\hscale]{}\rule[-1mm]{0.5pt}{19\vscale-1mm}\makebox[3\hscale]{}%
-		\makebox[7\hscale][l]{\thepage}}}}}%
+		\makebox[7\hscale][l]{\textcolor{bleuxp}{\thepage}}}}}}%
 }{%Pages impaires puis paires puis ??
 	{\smash{\hspace{-\headmarginparwidth}\hspace{-\headmarginparsep}\makebox[\headtotal][l]{%
 		\makebox[7\hscale][r]{
 			\begin{tabular}{l}
-			\\ \includegraphics[width=1.5cm]{logo_lycee} \\ 
+			\\ 
+			\\ \\ \includegraphics[width=1.5cm]{logo_lycee} \\ 
 			\end{tabular}
 			}%
-		\makebox[3\hscale]{}\rule[-14mm]{0.5pt}{19\vscale-1mm}\makebox[3\hscale]{}%
+		\makebox[3\hscale]{}%\rule[-14mm]{0.5pt}{19\vscale-1mm}\makebox[3\hscale]{}%
 		\makebox[\headtextwidth][l]{
 			\begin{tabular}{l} 
-			\\ Xavier Pessoles \\ 
-			Sciences Industrielles de l'Ingénieur
+			\\ \\ \\ \textcolor{bleuxp}{Xavier Pessoles} \\ 
+			\textcolor{bleuxp}{Sciences Industrielles de l'Ingénieur}
 			\end{tabular}
 			}}}}%
 	{\smash{\makebox[0pt][l]{\makebox[\headtotal][r]{%
 		\makebox[\headtextwidth][r]{
 			\hfill 
 			\begin{tabular}{r}
-			\\ Xavier Pessoles \\ 
-			Sciences Industrielles de l'Ingénieur
+			\\ \\ \\ \textcolor{bleuxp}{Xavier Pessoles} \\ 
+			\textcolor{bleuxp}{Sciences Industrielles de l'Ingénieur}
 			\end{tabular}
 			}%
-		\makebox[3\hscale]{}\rule[-14mm]{0.5pt}{19\vscale-1mm}\makebox[3\hscale]{}%
+		\makebox[3\hscale]{}%\rule[-14mm]{0.5pt}{19\vscale-1mm}\makebox[3\hscale]{}%
 		\makebox[7\hscale][l]{
 		\begin{tabular}{c}
-			\\ \includegraphics[width=1.5cm]{logo_lycee} \\ 
+			\\ \\ \\ \includegraphics[width=1.5cm]{logo_lycee} \\ 
 			\end{tabular}
 		}}}}}%
 	{\smash{\makebox[0pt][l]{\makebox[\headtotal][r]{%
