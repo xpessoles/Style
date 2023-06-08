@@ -206,7 +206,9 @@
  \newcommand{\babard}[4]{%
 \vectmd{#1}{#3}{#4}=\vectmd{#2}{#3}{#4}+\vect{#1#2}\wedge \vectrd{#3}{#4}
 }
-
+ \newcommand{\babardp}[5]{%
+\vectmd{#1}{#3}{#4}\cdot {#5}=\left(\vectmd{#2}{#3}{#4}+\vect{#1#2}\wedge \vectrd{#3}{#4} \right)\cdot {#5}
+}
 %Varignon cinématique
  \newcommand{\babarv}[4]{%
 \vectv{#1}{#3}{#4}=\vectv{#2}{#3}{#4}+\vect{#1#2}\wedge \vecto{#3}{#4}
