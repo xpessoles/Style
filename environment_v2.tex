@@ -354,3 +354,36 @@
 	fonttitle=\bfseries,
 	title = Remarques#1
 }
+
+
+%% Pour le python %%
+\usepackage{listingsutf8}
+
+\lstset{language=Python,
+  inputencoding=utf8/latin1,
+  breaklines=true,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+  upquote = true,
+  columns=fullflexible,
+  backgroundcolor=\color{gray!10},frame=leftline,rulecolor=\color{gray}}  
+  
+\definecolor{mygreen}{rgb}{0,0.6,0}
+
+\lstset{
+     literate=%
+         {é}{{\'e}}1    
+         {è}{{\`e}}1    
+         {ê}{{\^e}}1    
+         {à}{{\`a}}1
+         {â}{{\^a}}1		 
+         {ô}{{\^o}}1    
+         {ù}{{\`u}}1    
+         {î}{{\^i}}1    
+}
+
+%%
+
