@@ -26,7 +26,12 @@
 
 %% Pour les subfigure.
 %\usepackage{caption}
-%\usepackage{subcaption}
+
+
+\usepackage{subcaption}
+\expandafter\def\csname ver@subfig.sty\endcsname{} %%% Empeche la collision avec un autre paquet... lequel ? (SVG ?)
+
+
 
 %\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm,a4paper]{geometry} % Page margins
 %
