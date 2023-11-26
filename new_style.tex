@@ -287,9 +287,8 @@
 \newcounter{numexo}%Création d'un compteur qui s'appelle numques
 \setcounter{numexo}{0}%initialisation du compteur
 \newcommand{\exer}[1]{%Création d'une macro ayant un paramètre
-\refstepcounter{numexo} % incrément compteur et label
-
-%\addtocounter{numexo}{1}%chaque fois que cette macro est appelée, elle ajoute 1 au compteur numexo
+%\refstepcounter{numexo} % incrément compteur et label
+\addtocounter{numexo}{-1}%chaque fois que cette macro est appelée, elle ajoute 1 au compteur numexo
 \noindent\textsf{\textbf{Exercice\, \textcolor{bleuxp}{\thenumexo}\, -- \, #1}}}
 
 \newcounter{exo}
