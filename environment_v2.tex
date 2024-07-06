@@ -14,6 +14,10 @@
 \definecolor{rougexp}{RGB}{238,104,93}
 \definecolor{rougexpc}{RGB}{247,184,179}
 
+
+
+
+
 \setlength{\columnseprule}{0pt}
 
 %%%%%%%%%%%
@@ -467,3 +471,113 @@
 
 %%
 
+
+
+
+%%%%% Définition des compétences XP
+% Couleurs compétences
+\definecolor{couleurGeo}{RGB}{78,121,167}
+\definecolor{couleurCin}{RGB}{160,203,232}
+\definecolor{couleurStat}{RGB}{242,142,43}
+\definecolor{couleurChs}{RGB}{255,190,125}
+\definecolor{couleurDyn}{RGB}{89,161,79}
+\definecolor{couleurTec}{RGB}{140,209,125}
+\definecolor{couleurSlci}{RGB}{73,152,148}
+\definecolor{couleurPerf}{RGB}{134,188,182}
+\definecolor{couleurCor}{RGB}{255,87,89}
+\definecolor{couleurNl}{RGB}{255,157,154}
+\definecolor{couleurSeq}{RGB}{121,112,110}
+\definecolor{couleurNum}{RGB}{186,176,172}
+\definecolor{couleurSys}{RGB}{211,114,149}
+\definecolor{couleurCt}{RGB}{250,191,210}
+% (176,122,161) % Violet
+% (212,166,200) % Violet clair
+% (157,118,96) % Marron f
+% (212,166,200) % Marron c
+% (212,166,200) % Jaune f
+% (241,206,99) % Jaune c
+
+
+\newcommand\tracecomp[2]{
+\begin{tikzpicture}%[baseline=-0.1em]
+      \node[rounded corners=0.2em,fill=#1] {\textbf{\small #2}};
+\end{tikzpicture}}
+
+\newcommand\xpcomp[1]{
+	\ifthenelse{\equal{#1}{GEO}}{\tracecomp{couleurGeo}{#1}}{}
+	\ifthenelse{\equal{#1}{GEO-01}}{\tracecomp{couleurGeo}{#1}}{}
+	\ifthenelse{\equal{#1}{GEO-02}}{\tracecomp{couleurGeo}{#1}}{}
+	\ifthenelse{\equal{#1}{GEO-03}}{\tracecomp{couleurGeo}{#1}}{}
+	\ifthenelse{\equal{#1}{CIN}}{\tracecomp{couleurCin}{#1}}{}
+	\ifthenelse{\equal{#1}{CIN-01}}{\tracecomp{couleurCin}{#1}}{}
+	\ifthenelse{\equal{#1}{CIN-02}}{\tracecomp{couleurCin}{#1}}{}
+	\ifthenelse{\equal{#1}{CIN-03}}{\tracecomp{couleurCin}{#1}}{}
+	\ifthenelse{\equal{#1}{CIN-04}}{\tracecomp{couleurCin}{#1}}{}
+	\ifthenelse{\equal{#1}{STAT}}{\tracecomp{couleurStat}{#1}}{}
+	\ifthenelse{\equal{#1}{STAT-01}}{\tracecomp{couleurStat}{#1}}{}
+	\ifthenelse{\equal{#1}{STAT-02}}{\tracecomp{couleurStat}{#1}}{}
+	\ifthenelse{\equal{#1}{STAT-03}}{\tracecomp{couleurStat}{#1}}{}
+	\ifthenelse{\equal{#1}{STAT-04}}{\tracecomp{couleurStat}{#1}}{}
+	\ifthenelse{\equal{#1}{STAT-05}}{\tracecomp{couleurStat}{#1}}{}
+	\ifthenelse{\equal{#1}{STAT-06}}{\tracecomp{couleurStat}{#1}}{}
+	\ifthenelse{\equal{#1}{CHS}}{\tracecomp{couleurChs}{#1}}{}
+	\ifthenelse{\equal{#1}{CHS-01}}{\tracecomp{couleurChs}{#1}}{}
+	\ifthenelse{\equal{#1}{CHS-02}}{\tracecomp{couleurChs}{#1}}{}
+	\ifthenelse{\equal{#1}{CHS-03}}{\tracecomp{couleurChs}{#1}}{}
+	\ifthenelse{\equal{#1}{DYN}}{\tracecomp{couleurDyn}{#1}}{}
+	\ifthenelse{\equal{#1}{DYN-01}}{\tracecomp{couleurDyn}{#1}}{}
+	\ifthenelse{\equal{#1}{DYN-02}}{\tracecomp{couleurDyn}{#1}}{}
+	\ifthenelse{\equal{#1}{DYN-03}}{\tracecomp{couleurDyn}{#1}}{}
+	\ifthenelse{\equal{#1}{DYN-04}}{\tracecomp{couleurDyn}{#1}}{}
+	\ifthenelse{\equal{#1}{DYN-05}}{\tracecomp{couleurDyn}{#1}}{}
+	\ifthenelse{\equal{#1}{DYN-06}}{\tracecomp{couleurDyn}{#1}}{}
+	\ifthenelse{\equal{#1}{TEC}}{\tracecomp{couleurTec}{#1}}{}
+	\ifthenelse{\equal{#1}{TEC-01}}{\tracecomp{couleurTec}{#1}}{}
+	\ifthenelse{\equal{#1}{TEC-02}}{\tracecomp{couleurTec}{#1}}{}
+	\ifthenelse{\equal{#1}{TEC-03}}{\tracecomp{couleurTec}{#1}}{}
+	\ifthenelse{\equal{#1}{TEC-04}}{\tracecomp{couleurTec}{#1}}{}
+	\ifthenelse{\equal{#1}{TEC-05}}{\tracecomp{couleurTec}{#1}}{}
+	\ifthenelse{\equal{#1}{SLCI}}{\tracecomp{couleurSlci}{#1}}{}
+	\ifthenelse{\equal{#1}{SLCI-01}}{\tracecomp{couleurSlci}{#1}}{}
+	\ifthenelse{\equal{#1}{SLCI-02}}{\tracecomp{couleurSlci}{#1}}{}
+	\ifthenelse{\equal{#1}{SLCI-03}}{\tracecomp{couleurSlci}{#1}}{}
+	\ifthenelse{\equal{#1}{SLCI-04}}{\tracecomp{couleurSlci}{#1}}{}
+	\ifthenelse{\equal{#1}{SLCI-05}}{\tracecomp{couleurSlci}{#1}}{}
+	\ifthenelse{\equal{#1}{SLCI-06}}{\tracecomp{couleurSlci}{#1}}{}
+	\ifthenelse{\equal{#1}{SLCI-07}}{\tracecomp{couleurSlci}{#1}}{}
+	\ifthenelse{\equal{#1}{SLCI-08}}{\tracecomp{couleurSlci}{#1}}{}
+	\ifthenelse{\equal{#1}{SLCI-09}}{\tracecomp{couleurSlci}{#1}}{}
+	\ifthenelse{\equal{#1}{SLCI-10}}{\tracecomp{couleurSlci}{#1}}{}
+	\ifthenelse{\equal{#1}{PERF}}{\tracecomp{couleurPerf}{#1}}{}
+	\ifthenelse{\equal{#1}{PERF-01}}{\tracecomp{couleurPerf}{#1}}{}
+	\ifthenelse{\equal{#1}{PERF-02}}{\tracecomp{couleurPerf}{#1}}{}
+	\ifthenelse{\equal{#1}{PERF-03}}{\tracecomp{couleurPerf}{#1}}{}
+	\ifthenelse{\equal{#1}{PERF-04}}{\tracecomp{couleurPerf}{#1}}{}
+	\ifthenelse{\equal{#1}{PERF-05}}{\tracecomp{couleurPerf}{#1}}{}
+	\ifthenelse{\equal{#1}{PERF-06}}{\tracecomp{couleurPerf}{#1}}{}
+	\ifthenelse{\equal{#1}{COR}}{\tracecomp{couleurCor}{#1}}{}
+	\ifthenelse{\equal{#1}{COR-01}}{\tracecomp{couleurCor}{#1}}{}
+	\ifthenelse{\equal{#1}{COR-02}}{\tracecomp{couleurCor}{#1}}{}
+	\ifthenelse{\equal{#1}{COR-03}}{\tracecomp{couleurCor}{#1}}{}
+	\ifthenelse{\equal{#1}{COR-04}}{\tracecomp{couleurCor}{#1}}{}
+	\ifthenelse{\equal{#1}{COR-05}}{\tracecomp{couleurCor}{#1}}{}
+	\ifthenelse{\equal{#1}{NL}}{\tracecomp{couleurNl}{#1}}{}
+	\ifthenelse{\equal{#1}{NL-01}}{\tracecomp{couleurNl}{#1}}{}
+	\ifthenelse{\equal{#1}{NL-02}}{\tracecomp{couleurNl}{#1}}{}
+	\ifthenelse{\equal{#1}{SEQ}}{\tracecomp{couleurSeq}{#1}}{}
+	\ifthenelse{\equal{#1}{SEQ-01}}{\tracecomp{couleurSeq}{#1}}{}
+	\ifthenelse{\equal{#1}{SEQ-02}}{\tracecomp{couleurSeq}{#1}}{}
+	\ifthenelse{\equal{#1}{SEQ-03}}{\tracecomp{couleurSeq}{#1}}{}
+	\ifthenelse{\equal{#1}{NUM}}{\tracecomp{couleurNum}{#1}}{}
+	\ifthenelse{\equal{#1}{NUM-01}}{\tracecomp{couleurNum}{#1}}{}
+	\ifthenelse{\equal{#1}{NUM-02}}{\tracecomp{couleurNum}{#1}}{}
+	\ifthenelse{\equal{#1}{NUM-03}}{\tracecomp{couleurNum}{#1}}{}
+	\ifthenelse{\equal{#1}{NUM-04}}{\tracecomp{couleurNum}{#1}}{}
+	\ifthenelse{\equal{#1}{NUM-05}}{\tracecomp{couleurNum}{#1}}{}
+	\ifthenelse{\equal{#1}{SYS}}{\tracecomp{couleurSys}{#1}}{}
+	\ifthenelse{\equal{#1}{SYS-01}}{\tracecomp{couleurSys}{#1}}{}
+	\ifthenelse{\equal{#1}{SYS-02}}{\tracecomp{couleurSys}{#1}}{}
+	\ifthenelse{\equal{#1}{SYS-03}}{\tracecomp{couleurSys}{#1}}{}
+	\ifthenelse{\equal{#1}{SYS-04}}{\tracecomp{couleurSys}{#1}}{}
+	\ifthenelse{\equal{#1}{SYS-05}}{\tracecomp{couleurSys}{#1}}{}
+	}
