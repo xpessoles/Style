@@ -499,6 +499,9 @@
 
 
 
+% Pour la géométrie geo clair, geo geo foncé
+
+
 
 
 %#1 : texte vertical
@@ -531,6 +534,7 @@
 \end{tikzpicture}}
 
 \newcommand\xpcomp[1]{
+	
 	\ifthenelse{\equal{#1}{GEO}}{\cpbox{}{GEO}}{
 	\ifthenelse{\equal{#1}{GEO-01}}{\tracecomp{couleurGeo}{#1}}{
 	\ifthenelse{\equal{#1}{GEO-02}}{\tracecomp{couleurGeo}{#1}}{
