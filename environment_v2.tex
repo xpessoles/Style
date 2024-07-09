@@ -498,20 +498,57 @@
 % (241,206,99) % Jaune c
 
 
+%%%%%% Anthony
+\usepackage{pgf}
+
+% le dictionnaire
+\pgfkeys{
+  /stringcolor/.is family, /stringcolor,
+  /stringcolor/.unknown/.code = {\pgfkeyssetvalue{/stringcolor/#1}{#1}},
+  /stringcolor/GEO/.initial = black,
+  /stringcolor/CIN/.initial = red,
+  /stringcolor/STAT/.initial = green,
+  /stringcolor/CHS/.initial = blue,
+  /stringcolor/DYN/.initial = cyan,
+  /stringcolor/TEC/.initial = magenta,
+  /stringcolor/SLCI/.initial = brown,
+  /stringcolor/PERF/.initial = darkgray,
+  /stringcolor/COR/.initial = pink,
+  /stringcolor/NL/.initial = orange,
+  /stringcolor/SEQ/.initial = olive,
+  /stringcolor/NUM/.initial = purple,
+  /stringcolor/SYS/.initial = teal,
+  /stringcolor/CT/.initial = violet,
+}
+
+% pour avoir la couleur
+\newcommand{\colorForText}[1]{\pgfkeysvalueof{/stringcolor/#1}}
+% la boîte
+\newtcbox{\mybox}[1]{on line,
+arc=0pt,outer arc=0pt,
+colback=\colorForText{#1}!\pourCen!white,
+colframe=\colorForText{#1}!50!black,
+boxsep=0pt,left=1pt,right=1pt,top=2pt,bottom=2pt,
+boxrule=0pt,bottomrule=1pt,toprule=1pt}
+
+\newcommand{\xpComp}[2]{
+\pgfmathsetmacro{\result}{(#2 * 3) + 2}%
+\edef\pourCen{\result}%
+%\mybox{#1} {\textbf{#1 -- #2}}}
+\cpbox{#1}{#2} {\textbf{#1}}}
+
+%%%% Fonctionnement : \xpComp{TEC}{00}
+%%%%%% Anthony
 
 % Pour la géométrie geo clair, geo geo foncé
-
-
-
-
 %#1 : texte vertical
 % Pour le corps, pas d'argument
-\newtcbox{\cpbox}[1]{enhanced,nobeforeafter,tcbox raise base,boxrule=0.4pt,top=0mm,bottom=0mm,
+\newtcbox{\cpbox}[2]{enhanced,nobeforeafter,tcbox raise base,boxrule=0.4pt,top=.8mm,bottom=0mm,
   right=0mm,left=4mm,arc=1pt,boxsep=2pt,before upper={\vphantom{dlg}},
-  colframe=green,coltext=green!25!black,colback=green!10!white,
+  colframe= \colorForText{#1}!50!black,coltext=\colorForText{#1}!25!black,colback=\colorForText{#1}!10!white,
   fontupper=\sffamily\bfseries,
-  overlay={\begin{tcbclipinterior}\fill[green!75!blue!50!white] (frame.south west)
-    rectangle node[text=white,font=\sffamily\bfseries\footnotesize,rotate=90] {#1} ([xshift=4mm]frame.north west);\end{tcbclipinterior}}}
+  overlay={\begin{tcbclipinterior}\fill[\colorForText{#1}!75!blue!50!white] (frame.south west)
+    rectangle node[text=white,font=\sffamily\bfseries\footnotesize,rotate=90] {#2} ([xshift=4mm]frame.north west);\end{tcbclipinterior}}}
 
 
 
