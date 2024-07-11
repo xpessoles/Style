@@ -474,28 +474,7 @@
 
 
 
-%%%%% Définition des compétences XP
-% Couleurs compétences
-\definecolor{couleurGeo}{RGB}{78,121,167}
-\definecolor{couleurCin}{RGB}{160,203,232}
-\definecolor{couleurStat}{RGB}{242,142,43}
-\definecolor{couleurChs}{RGB}{255,190,125}
-\definecolor{couleurDyn}{RGB}{89,161,79}
-\definecolor{couleurTec}{RGB}{140,209,125}
-\definecolor{couleurSlci}{RGB}{73,152,148}
-\definecolor{couleurPerf}{RGB}{134,188,182}
-\definecolor{couleurCor}{RGB}{255,87,89}
-\definecolor{couleurNl}{RGB}{255,157,154}
-\definecolor{couleurSeq}{RGB}{121,112,110}
-\definecolor{couleurNum}{RGB}{186,176,172}
-\definecolor{couleurSys}{RGB}{211,114,149}
-\definecolor{couleurCt}{RGB}{250,191,210}
-% (176,122,161) % Violet
-% (212,166,200) % Violet clair
-% (157,118,96) % Marron f
-% (212,166,200) % Marron c
-% (212,166,200) % Jaune f
-% (241,206,99) % Jaune c
+
 
 
 %%%%%% Anthony
@@ -532,13 +511,12 @@ boxsep=0pt,left=1pt,right=1pt,top=2pt,bottom=2pt,
 boxrule=0pt,bottomrule=1pt,toprule=1pt}
 
 \newcommand{\xpComp}[2]{
-\pgfmathsetmacro{\result}{(#2 * 3) + 2}%
-\edef\pourCen{\result}%
 %\mybox{#1} {\textbf{#1 -- #2}}}
 \cpbox{#1}{#2} {\textbf{#1}}}
 
 %%%% Fonctionnement : \xpComp{TEC}{00}
 %%%%%% Anthony
+
 
 % Pour la géométrie geo clair, geo geo foncé
 %#1 : texte vertical
@@ -551,102 +529,253 @@ boxrule=0pt,bottomrule=1pt,toprule=1pt}
     rectangle node[text=white,font=\sffamily\bfseries\footnotesize,rotate=90] {#2} ([xshift=4mm]frame.north west);\end{tcbclipinterior}}}
 
 
+\newcommand{\progress}[1]{
+    \begin{tikzpicture}
+        \fill[bleuxpc, rounded corners =1 mm] (0,0) rectangle (#1/100*2.5,.4);
+         \draw[bleuxp,thick, rounded corners =1 mm] (0,0) rectangle (2.5,.4);
+         \node at (1.25,0.2) {\textcolor{black}{#1~\%}};
+    \end{tikzpicture}
+}
+
+\newcommand{\CommaXp}{, }
+\pgfkeys{
+    /codecomp/.is family, /codecomp,
+    /codecomp/.unknown/.code = {\pgfkeyssetvalue{/codecomp/#1}{#1}},
+    /codecomp/GEO-00/.initial = Résoudre un problème de géométrie,
+    /codecomp/GEO-01/.initial = Analyser la géométrie d'un mécanisme\CommaXp analyser des surfaces de contact\CommaXp réaliser des constructions géométriques,
+    /codecomp/GEO-02/.initial = Modéliser un mécanisme en réalisant un schéma cinématique paramétré,
+    /codecomp/GEO-03/.initial = Résoudre un problème de géométrie : déterminer la trajectoire d'un point ou déterminer une loi Entrée - Sortie,
+    /codecomp/GEO-04/.initial = Évaluer expérimentalement une grandeur géométrique,
+    /codecomp/CIN-00/.initial = Résoudre un problème de cinématique,
+    /codecomp/CIN-01/.initial = Analyser un mécanisme\CommaXp réaliser un graphe de liaison,
+    /codecomp/CIN-02/.initial = Déterminer un vecteur vitesse\CommaXp un torseur cinématique\CommaXp un vecteur accélération,
+    /codecomp/CIN-03/.initial = Déterminer le rapport de transmission d'un transmetteur,
+    /codecomp/CIN-04/.initial = Déterminer un loi ES cinématique\CommaXp utiliser l'hypothèse de RSG,
+    /codecomp/CIN-05/.initial = Évaluer expérimentalement des grandeurs cinématiques,
+    /codecomp/STAT-00/.initial = Résoudre un problème de statique,
+    /codecomp/STAT-01/.initial = Analyser un problème en utilisant un graphe de structure,
+    /codecomp/STAT-02/.initial = Modéliser les actions mécaniques locales\CommaXp globales\CommaXp frottement,
+    /codecomp/STAT-03/.initial = Proposer une démarche de résolution en utilisant le PFS,
+    /codecomp/STAT-04/.initial = Mettre en œuvre une démarche de résolution,
+    /codecomp/STAT-05/.initial = Évaluer expérimentalement une action mécanique,
+    /codecomp/CHS-00/.initial = Modéliser un mécanisme,
+    /codecomp/CHS-01/.initial = Analyser un mécanisme en utilisant un graphe de liaisons,
+    /codecomp/CHS-02/.initial = Simplifier un mécanisme en utilisant une liaison équivalente,
+    /codecomp/CHS-03/.initial = Évaluer l'hyperstatisme d'un mécanisme,
+    /codecomp/CHS-04/.initial = Simplifier un mécanisme pour le rendre isostatique,
+    /codecomp/CHS-05/.initial = Analyser les conséquences de l'hyperstatisme d'un mécanisme,
+    /codecomp/DYN-00/.initial = Résoudre un problème de dynamique,
+    /codecomp/DYN-01/.initial = Analyser un problème\CommaXp définir une loi de mouvement,
+    /codecomp/DYN-02/.initial = Analyser un mécanisme en utilisant un graphe de structure,
+    /codecomp/DYN-03/.initial = Modéliser un solide et déterminer ses caractéristiques inertielles,
+    /codecomp/DYN-04/.initial = Déterminer un torseur cinétique\CommaXp un torseur dynamique,
+    /codecomp/DYN-05/.initial = Proposer une démarche de résolution en utilisant le PFD,
+    /codecomp/DYN-06/.initial = Mettre en œuvre une démarche de résolution en utilisant le PFD,
+    /codecomp/TEC-00/.initial = Résoudre un problème d'énergétique,
+    /codecomp/TEC-01/.initial = Analyser un mécanisme en utilisant un graphe de structure,
+    /codecomp/TEC-02/.initial = Déterminer les puissances intérieures,
+    /codecomp/TEC-03/.initial = Déterminer les puissances extérieures,
+    /codecomp/TEC-04/.initial = Déterminer l'inertie équivalente\CommaXp la masse équivalente\CommaXp l'énergie cinétique\CommaXp un travail,
+    /codecomp/TEC-05/.initial = Proposer et mettre en œuvre une démarche de résolution,
+    /codecomp/SLCI-00/.initial = Modéliser un SLCI,
+    /codecomp/SLCI-01/.initial = Analyser un asservissement\CommaXp proposer une structure d'asservissement,
+    /codecomp/SLCI-02/.initial = Modéliser un SLCI en utilisant la transformée de Laplace,
+    /codecomp/SLCI-03/.initial = Modéliser un SLCI en utilisant un schéma-bloc,
+    /codecomp/SLCI-04/.initial = Modéliser un SLCI en utilisant un modèle polyphysique,
+	/codecomp/SLCI-05/.initial = Modéliser un SLCI à plusieurs entrées\CommaXp sous forme matricielle éventuellement,
+    /codecomp/SLCI-06/.initial = Linéariser un comportement\CommaXp une équation\CommaXp simplifier un modèle,
+    /codecomp/SLCI-07/.initial = Modéliser un système d'ordre 1 et d'ordre 2,
+    /codecomp/SLCI-08/.initial = Déterminer une FTBO et une FTBF,
+    /codecomp/SLCI-09/.initial = Identifier des fonctions de transfert (à partir d'un schéma-bloc)\CommaXp mettre sous forme canonique et identifier des constantes,
+    /codecomp/SLCI-10/.initial = Déterminer et identifier une réponse temporelle,
+    /codecomp/SLCI-11/.initial = Déterminer et identifier et analyser une réponse fréquentielle,
+    /codecomp/PERF-00/.initial = Évaluer les performances d'un SLCI,
+    /codecomp/PERF-01/.initial = Évaluer la stabilité en utilisant la BF\CommaXp les pôles de la BF,
+    /codecomp/PERF-02/.initial = Évaluer la stabilité en utilisant les marges de la BO,
+    /codecomp/PERF-03/.initial = Évaluer la rapidité de la réponse temporelle,
+    /codecomp/PERF-04/.initial = Évaluer la rapidité à partir de la réponse fréquentielle de la BO,
+    /codecomp/PERF-05/.initial = Évaluer la précision à partir du TVF,
+    /codecomp/PERF-06/.initial = Évaluer la précision en utilisant la classe de la BO,
+    /codecomp/COR-00/.initial = Corriger un SLCI,
+    /codecomp/COR-01/.initial = Analyser un choix de correcteur (compensation de pôles\CommaXp nombre d'intégrations),
+    /codecomp/COR-02/.initial = Régler un correcteur P graphiquement ou analytiquement,
+    /codecomp/COR-03/.initial = Régler un correcteur PI graphiquement ou analytiquement,
+    /codecomp/COR-04/.initial = Régler un correcteur à avance de phase,
+    /codecomp/COR-05/.initial = Modéliser un correcteur numérique,
+    /codecomp/COR-06/.initial = Implanter un correcteur sur une cible,
+    /codecomp/NL-00/.initial = Modélisation des non linéarité d'un système,
+    /codecomp/NL-01/.initial = Identifier une non linéarité,
+    /codecomp/NL-02/.initial = Modéliser une non linéarité,
+    /codecomp/SEQ-00/.initial = Modéliser un système combinatoire ou séquentiel,
+    /codecomp/SEQ-01/.initial = Analyser un système séquentiel en utilisant un chronogramme\CommaXp analyser un système combinatoire en utilisant une table de vérité,
+    /codecomp/SEQ-02/.initial = Modélisation par équation booléenne,
+    /codecomp/SEQ-03/.initial = Modélisation par diagramme d'état,
+    /codecomp/NUM-00/.initial = Résoudre un problème numériquement,
+    /codecomp/NUM-01/.initial = Mettre un problème sous forme matricielle,
+    /codecomp/NUM-02/.initial = Résolution de f(x)=0,
+    /codecomp/NUM-03/.initial = Résolution d'une équation différentielle,
+    /codecomp/NUM-04/.initial = Résoudre un problème numériquement,
+    /codecomp/NUM-05/.initial = Résoudre un problème en utilisant l'apprentissage automatisé,
+    /codecomp/SYS-00/.initial = Analyser et valider les performances d'un système,
+    /codecomp/SYS-01/.initial = Réaliser une analyse structurelle\CommaXp flux\CommaXp effort,
+    /codecomp/SYS-02/.initial = Analyser une solution technologique,
+    /codecomp/SYS-03/.initial = Analyser un cahier des charges,
+    /codecomp/SYS-04/.initial = Valider les performances d'un système vis-à-vis d'un cahier des charges,
+    /codecomp/SYS-05/.initial = Analyser les résultats d'une simulation ou d'une expérimentation,
+    /codecomp/SYS-06/.initial = Mesurer et analyser une grandeur physique,
+}
+
+\newcommand{\compForCodecomp}[2]{\xpComp{#1}{#2} \pgfkeysvalueof{/codecomp/#1-#2}}
+\newcommand{\deuxcolxp}[2]{
+\begin{minipage}[c]{1cm} \xpComp{#1}{#2} \end{minipage} \hspace{.3cm} %
+\begin{minipage}[c]{8cm} \pgfkeysvalueof{/codecomp/#1-#2}\end{minipage} \\ \vspace{-0.2cm} \\}
+
+\newcommand{\allSysComp}{%
+\footnotesize
+\xpComp{SYS}{00} \hspace{.25cm} \textbf{\pgfkeysvalueof{/codecomp/SYS-00}} \\ \vspace{-.1cm} \\
+\indent \hspace{.5cm} \deuxcolxp{SYS}{01}
+\indent \hspace{.5cm} \deuxcolxp{SYS}{02}
+\indent \hspace{.5cm} \deuxcolxp{SYS}{03}
+\indent \hspace{.5cm} \deuxcolxp{SYS}{04}
+\indent \hspace{.5cm} \deuxcolxp{SYS}{05}
+\indent \hspace{.5cm} \deuxcolxp{SYS}{06}
+\normalsize
+}
+
+\newcommand{\allGeoComp}{% 
+\footnotesize
+\xpComp{GEO}{00} \hspace{.25cm} \textbf{\pgfkeysvalueof{/codecomp/GEO-00}} \\ \vspace{-.1cm} \\
+\indent \hspace{.5cm} \deuxcolxp{GEO}{01}
+\indent \hspace{.5cm} \deuxcolxp{GEO}{02}  
+\indent \hspace{.5cm} \deuxcolxp{GEO}{03}  
+\indent \hspace{.5cm} \deuxcolxp{GEO}{04} 
+\normalsize
+}
+
+\newcommand{\allCinComp}{%
+\footnotesize
+\xpComp{CIN}{00} \hspace{.25cm} \textbf{\pgfkeysvalueof{/codecomp/CIN-00}} \\ \vspace{-.1cm} \\
+\indent \hspace{.5cm} \deuxcolxp{CIN}{01}
+\indent \hspace{.5cm} \deuxcolxp{CIN}{02}
+\indent \hspace{.5cm} \deuxcolxp{CIN}{03}
+\indent \hspace{.5cm} \deuxcolxp{CIN}{04}
+\indent \hspace{.5cm} \deuxcolxp{CIN}{05}
+\normalsize
+}
+
+\newcommand{\allStatComp}{%
+\footnotesize
+\xpComp{STAT}{00} \hspace{.25cm} \textbf{\pgfkeysvalueof{/codecomp/STAT-00}} \\ \vspace{-.1cm} \\
+\indent \hspace{.5cm} \deuxcolxp{STAT}{01}
+\indent \hspace{.5cm} \deuxcolxp{STAT}{02}
+\indent \hspace{.5cm} \deuxcolxp{STAT}{03}
+\indent \hspace{.5cm} \deuxcolxp{STAT}{04}
+\indent \hspace{.5cm} \deuxcolxp{STAT}{05}
+\normalsize
+}
+
+\newcommand{\allChsComp}{%
+\footnotesize
+\xpComp{CHS}{00} \textbf{\pgfkeysvalueof{/codecomp/CHS-00}} \\ \vspace{-.1cm} \\
+\indent \hspace{.5cm} \deuxcolxp{CHS}{01}
+\indent \hspace{.5cm} \deuxcolxp{CHS}{02}
+\indent \hspace{.5cm} \deuxcolxp{CHS}{03}
+\indent \hspace{.5cm} \deuxcolxp{CHS}{04}
+\indent \hspace{.5cm} \deuxcolxp{CHS}{05}
+\normalsize
+}
+
+\newcommand{\allDynComp}{%
+\footnotesize
+\xpComp{DYN}{00} \textbf{\pgfkeysvalueof{/codecomp/DYN-00}} \\ \vspace{-.1cm} \\
+\indent \hspace{.5cm} \deuxcolxp{DYN}{01}
+\indent \hspace{.5cm} \deuxcolxp{DYN}{02}
+\indent \hspace{.5cm} \deuxcolxp{DYN}{03}
+\indent \hspace{.5cm} \deuxcolxp{DYN}{04}
+\indent \hspace{.5cm} \deuxcolxp{DYN}{05}
+\indent \hspace{.5cm} \deuxcolxp{DYN}{06}
+\normalsize
+}
+
+\newcommand{\allTecComp}{%
+\footnotesize
+\xpComp{TEC}{00} \textbf{\pgfkeysvalueof{/codecomp/TEC-00}} \\ \vspace{-.1cm} \\
+\indent \hspace{.5cm} \deuxcolxp{TEC}{01}
+\indent \hspace{.5cm} \deuxcolxp{TEC}{02}
+\indent \hspace{.5cm} \deuxcolxp{TEC}{03}
+\indent \hspace{.5cm} \deuxcolxp{TEC}{04}
+\indent \hspace{.5cm} \deuxcolxp{TEC}{05}
+\normalsize
+}
+
+\newcommand{\allSlciComp}{%
+\footnotesize
+\xpComp{SLCI}{00} \textbf{\pgfkeysvalueof{/codecomp/SLCI-00}} \\ \vspace{-.1cm} \\
+\indent \hspace{.5cm} \deuxcolxp{SLCI}{01}
+\indent \hspace{.5cm} \deuxcolxp{SLCI}{02}
+\indent \hspace{.5cm} \deuxcolxp{SLCI}{03}
+\indent \hspace{.5cm} \deuxcolxp{SLCI}{04}
+\indent \hspace{.5cm} \deuxcolxp{SLCI}{05}
+\indent \hspace{.5cm} \deuxcolxp{SLCI}{06}
+\indent \hspace{.5cm} \deuxcolxp{SLCI}{07}
+\indent \hspace{.5cm} \deuxcolxp{SLCI}{08}
+\indent \hspace{.5cm} \deuxcolxp{SLCI}{09}
+\indent \hspace{.5cm} \deuxcolxp{SLCI}{10}
+\indent \hspace{.5cm} \deuxcolxp{SLCI}{11}
+\normalsize
+}
+
+\newcommand{\allPerfComp}{%
+\footnotesize
+\xpComp{PERF}{00} \textbf{\pgfkeysvalueof{/codecomp/PERF-00}} \\ \vspace{-.1cm} \\
+\indent \hspace{.5cm} \deuxcolxp{PERF}{01}
+\indent \hspace{.5cm} \deuxcolxp{PERF}{02}
+\indent \hspace{.5cm} \deuxcolxp{PERF}{03}
+\indent \hspace{.5cm} \deuxcolxp{PERF}{04}
+\indent \hspace{.5cm} \deuxcolxp{PERF}{05}
+\indent \hspace{.5cm} \deuxcolxp{PERF}{06}
+\normalsize
+}
+
+\newcommand{\allCorComp}{%
+\footnotesize
+\xpComp{COR}{00} \textbf{\pgfkeysvalueof{/codecomp/COR-00}} \\ \vspace{-.1cm} \\
+\indent \hspace{.5cm} \deuxcolxp{COR}{01}
+\indent \hspace{.5cm} \deuxcolxp{COR}{02}
+\indent \hspace{.5cm} \deuxcolxp{COR}{03}
+\indent \hspace{.5cm} \deuxcolxp{COR}{04}
+\indent \hspace{.5cm} \deuxcolxp{COR}{05}
+\indent \hspace{.5cm} \deuxcolxp{COR}{06}
+\normalsize
+}
+
+\newcommand{\allNlComp}{%
+\footnotesize
+\xpComp{NL}{00} \textbf{\pgfkeysvalueof{/codecomp/NL-00}} \\ \vspace{-.1cm} \\
+\indent \hspace{.5cm} \deuxcolxp{NL}{01} 
+\indent \hspace{.5cm} \deuxcolxp{NL}{02} 
+\normalsize
+}
+
+\newcommand{\allSeqComp}{%
+\footnotesize
+\xpComp{SEQ}{00} \textbf{\pgfkeysvalueof{/codecomp/SEQ-00}} \\ \vspace{-.1cm} \\
+\indent \hspace{.5cm} \deuxcolxp{SEQ}{01} 
+\indent \hspace{.5cm} \deuxcolxp{SEQ}{02} 
+\indent \hspace{.5cm} \deuxcolxp{SEQ}{03} 
+\normalsize
+}
+
+\newcommand{\allNumComp}{%
+\footnotesize
+\xpComp{NUM}{00} \textbf{\pgfkeysvalueof{/codecomp/NUM-00}} \\ \vspace{-.1cm} \\
+\indent \hspace{.5cm} \deuxcolxp{NUM}{01} 
+\indent \hspace{.5cm} \deuxcolxp{NUM}{02} 
+\indent \hspace{.5cm} \deuxcolxp{NUM}{03} 
+\indent \hspace{.5cm} \deuxcolxp{NUM}{04} 
+\indent \hspace{.5cm} \deuxcolxp{NUM}{05} 
+\normalsize
+}
 
 
-\newtcbox{\mylib}{enhanced,nobeforeafter,tcbox raise base,boxrule=0.4pt,top=0mm,bottom=0mm,
-  right=0mm,left=4mm,arc=1pt,boxsep=2pt,before upper={\vphantom{dlg}},
-  colframe=green!50!black,coltext=green!25!black,colback=green!10!white,
-  overlay={\begin{tcbclipinterior}\fill[green!75!blue!50!white] (frame.south west)
-    rectangle node[text=white,font=\sffamily\bfseries\tiny,rotate=90] {LIB} ([xshift=4mm]frame.north west);\end{tcbclipinterior}}}
-
-\MakeRobust\mylib
-
-\ifdefined\pdfstringdefDisableCommands
-  \pdfstringdefDisableCommands{\def\mylib#1{'#1'}}
-\fi
-
-\newcommand\tracecomp[2]{
-\begin{tikzpicture}%[baseline=-0.1em]
-      \node[rounded corners=0.2em,fill=#1] {\textbf{\small #2}};
-\end{tikzpicture}}
-
-\newcommand\xpcomp[1]{
-	
-	\ifthenelse{\equal{#1}{GEO}}{\cpbox{}{GEO}}{
-	\ifthenelse{\equal{#1}{GEO-01}}{\tracecomp{couleurGeo}{#1}}{
-	\ifthenelse{\equal{#1}{GEO-02}}{\tracecomp{couleurGeo}{#1}}{
-	\ifthenelse{\equal{#1}{GEO-03}}{\tracecomp{couleurGeo}{#1}}{
-	\ifthenelse{\equal{#1}{CIN}}{\tracecomp{couleurCin}{#1}}{
-	\ifthenelse{\equal{#1}{CIN-01}}{\tracecomp{couleurCin}{#1}}{
-	\ifthenelse{\equal{#1}{CIN-02}}{\tracecomp{couleurCin}{#1}}{
-	\ifthenelse{\equal{#1}{CIN-03}}{\tracecomp{couleurCin}{#1}}{
-	\ifthenelse{\equal{#1}{CIN-04}}{\cpbox{04}{CIN}}{
-	\ifthenelse{\equal{#1}{STAT}}{\tracecomp{couleurStat}{#1}}{
-	\ifthenelse{\equal{#1}{STAT-01}}{\tracecomp{couleurStat}{#1}}{
-	\ifthenelse{\equal{#1}{STAT-02}}{\tracecomp{couleurStat}{#1}}{
-	\ifthenelse{\equal{#1}{STAT-03}}{\tracecomp{couleurStat}{#1}}{
-	\ifthenelse{\equal{#1}{STAT-04}}{\tracecomp{couleurStat}{#1}}{
-	\ifthenelse{\equal{#1}{STAT-05}}{\tracecomp{couleurStat}{#1}}{
-	\ifthenelse{\equal{#1}{STAT-06}}{\tracecomp{couleurStat}{#1}}{
-	\ifthenelse{\equal{#1}{CHS}}{\tracecomp{couleurChs}{#1}}{
-	\ifthenelse{\equal{#1}{CHS-01}}{\tracecomp{couleurChs}{#1}}{
-	\ifthenelse{\equal{#1}{CHS-02}}{\tracecomp{couleurChs}{#1}}{
-	\ifthenelse{\equal{#1}{CHS-03}}{\tracecomp{couleurChs}{#1}}{
-	\ifthenelse{\equal{#1}{DYN}}{\tracecomp{couleurDyn}{#1}}{
-	\ifthenelse{\equal{#1}{DYN-01}}{\tracecomp{couleurDyn}{#1}}{
-	\ifthenelse{\equal{#1}{DYN-02}}{\tracecomp{couleurDyn}{#1}}{
-	\ifthenelse{\equal{#1}{DYN-03}}{\tracecomp{couleurDyn}{#1}}{
-	\ifthenelse{\equal{#1}{DYN-04}}{\tracecomp{couleurDyn}{#1}}{
-	\ifthenelse{\equal{#1}{DYN-05}}{\tracecomp{couleurDyn}{#1}}{
-	\ifthenelse{\equal{#1}{DYN-06}}{\tracecomp{couleurDyn}{#1}}{
-	\ifthenelse{\equal{#1}{TEC}}{\tracecomp{couleurTec}{#1}}{
-	\ifthenelse{\equal{#1}{TEC-01}}{\tracecomp{couleurTec}{#1}}{
-	\ifthenelse{\equal{#1}{TEC-02}}{\tracecomp{couleurTec}{#1}}{
-	\ifthenelse{\equal{#1}{TEC-03}}{\tracecomp{couleurTec}{#1}}{
-	\ifthenelse{\equal{#1}{TEC-04}}{\tracecomp{couleurTec}{#1}}{
-	\ifthenelse{\equal{#1}{TEC-05}}{\tracecomp{couleurTec}{#1}}{
-	\ifthenelse{\equal{#1}{SLCI}}{\tracecomp{couleurSlci}{#1}}{
-	\ifthenelse{\equal{#1}{SLCI-01}}{\tracecomp{couleurSlci}{#1}}{
-	\ifthenelse{\equal{#1}{SLCI-02}}{\tracecomp{couleurSlci}{#1}}{
-	\ifthenelse{\equal{#1}{SLCI-03}}{\tracecomp{couleurSlci}{#1}}{
-	\ifthenelse{\equal{#1}{SLCI-04}}{\tracecomp{couleurSlci}{#1}}{
-	\ifthenelse{\equal{#1}{SLCI-05}}{\tracecomp{couleurSlci}{#1}}{
-	\ifthenelse{\equal{#1}{SLCI-06}}{\tracecomp{couleurSlci}{#1}}{
-	\ifthenelse{\equal{#1}{SLCI-07}}{\tracecomp{couleurSlci}{#1}}{
-	\ifthenelse{\equal{#1}{SLCI-08}}{\tracecomp{couleurSlci}{#1}}{
-	\ifthenelse{\equal{#1}{SLCI-09}}{\tracecomp{couleurSlci}{#1}}{
-	\ifthenelse{\equal{#1}{SLCI-10}}{\tracecomp{couleurSlci}{#1}}{
-	\ifthenelse{\equal{#1}{PERF}}{\tracecomp{couleurPerf}{#1}}{
-	\ifthenelse{\equal{#1}{PERF-01}}{\tracecomp{couleurPerf}{#1}}{
-	\ifthenelse{\equal{#1}{PERF-02}}{\tracecomp{couleurPerf}{#1}}{
-	\ifthenelse{\equal{#1}{PERF-03}}{\tracecomp{couleurPerf}{#1}}{
-	\ifthenelse{\equal{#1}{PERF-04}}{\tracecomp{couleurPerf}{#1}}{
-	\ifthenelse{\equal{#1}{PERF-05}}{\tracecomp{couleurPerf}{#1}}{
-	\ifthenelse{\equal{#1}{PERF-06}}{\tracecomp{couleurPerf}{#1}}{
-	\ifthenelse{\equal{#1}{COR}}{\tracecomp{couleurCor}{#1}}{
-	\ifthenelse{\equal{#1}{COR-01}}{\tracecomp{couleurCor}{#1}}{
-	\ifthenelse{\equal{#1}{COR-02}}{\tracecomp{couleurCor}{#1}}{
-	\ifthenelse{\equal{#1}{COR-03}}{\tracecomp{couleurCor}{#1}}{
-	\ifthenelse{\equal{#1}{COR-04}}{\tracecomp{couleurCor}{#1}}{
-	\ifthenelse{\equal{#1}{COR-05}}{\tracecomp{couleurCor}{#1}}{
-	\ifthenelse{\equal{#1}{NL}}{\tracecomp{couleurNl}{#1}}{
-	\ifthenelse{\equal{#1}{NL-01}}{\tracecomp{couleurNl}{#1}}{
-	\ifthenelse{\equal{#1}{NL-02}}{\tracecomp{couleurNl}{#1}}{
-	\ifthenelse{\equal{#1}{SEQ}}{\tracecomp{couleurSeq}{#1}}{
-	\ifthenelse{\equal{#1}{SEQ-01}}{\tracecomp{couleurSeq}{#1}}{
-	\ifthenelse{\equal{#1}{SEQ-02}}{\tracecomp{couleurSeq}{#1}}{
-	\ifthenelse{\equal{#1}{SEQ-03}}{\tracecomp{couleurSeq}{#1}}{
-	\ifthenelse{\equal{#1}{NUM}}{\tracecomp{couleurNum}{#1}}{
-	\ifthenelse{\equal{#1}{NUM-01}}{\tracecomp{couleurNum}{#1}}{
-	\ifthenelse{\equal{#1}{NUM-02}}{\tracecomp{couleurNum}{#1}}{
-	\ifthenelse{\equal{#1}{NUM-03}}{\tracecomp{couleurNum}{#1}}{
-	\ifthenelse{\equal{#1}{NUM-04}}{\tracecomp{couleurNum}{#1}}{
-	\ifthenelse{\equal{#1}{NUM-05}}{\tracecomp{couleurNum}{#1}}{
-	\ifthenelse{\equal{#1}{SYS}}{\tracecomp{couleurSys}{#1}}{
-	\ifthenelse{\equal{#1}{SYS-01}}{\tracecomp{couleurSys}{#1}}{
-	\ifthenelse{\equal{#1}{SYS-02}}{\tracecomp{couleurSys}{#1}}{
-	\ifthenelse{\equal{#1}{SYS-03}}{\tracecomp{couleurSys}{#1}}{
-	\ifthenelse{\equal{#1}{SYS-04}}{\tracecomp{couleurSys}{#1}}{
-	\ifthenelse{\equal{#1}{SYS-05}}{\cpbox{05}{SYS}}{
-	}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
-	}
+%\newcommand{\CommaXp}{, }
