@@ -59,6 +59,7 @@
 	#1
 }
 
+
 \newtcolorbox{exemple}[1][]{
 	breakable,
 	before skip=1.5\topskip,
@@ -82,6 +83,26 @@
 	colframe=black,
 	fonttitle=\bfseries,
 	title = Exemple -- #1
+}
+
+
+
+% Exemples en marge
+\newtcolorbox{exemplem}[1][]{
+	boxrule=0pt,
+	colback=RoyalBlue!5!White,
+	coltext= darkgray,
+	sharp corners,enhanced,
+	borderline west={2pt}{0pt}{RoyalBlue!25!White},
+	left = 1pt,
+	right = 1pt,
+	top=1pt,
+	bottom=1pt,
+	colbacktitle=white,
+	title = \textcolor{RoyalBlue!25!White}{\textit{Exemple}},
+	%colframe=RoyalBlue,
+	%detach title,
+	%watermark text=\textit{\textsf{Exemple}}
 }
 
 \newtcolorbox{hypo}[1][]{
