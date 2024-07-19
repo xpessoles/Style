@@ -519,6 +519,9 @@
   /stringcolor/NUM/.initial = purple,
   /stringcolor/SYS/.initial = teal,
   /stringcolor/CT/.initial = violet,
+  /stringcolor/RDM/.initial = lime,
+   /stringcolor/ELEC/.initial = gray,
+   /stringcolor/PPM/.initial = gray,
 }
 
 % pour avoir la couleur
@@ -644,6 +647,22 @@ boxrule=0pt,bottomrule=1pt,toprule=1pt}
     /codecomp/SYS-04/.initial = Valider les performances d'un système vis-à-vis d'un cahier des charges,
     /codecomp/SYS-05/.initial = Analyser les résultats d'une simulation ou d'une expérimentation,
     /codecomp/SYS-06/.initial = Mesurer et analyser une grandeur physique,
+	/codecomp/RDM-00/.initial = Dimensionner une pièce mécanique en résistance des matériaux,
+	/codecomp/RDM-01/.initial = Déterminer un torseur de cohésion, tracer les diagrammes des efforts,
+	/codecomp/RDM-02/.initial = Dimensionner une pièce en traction ou compression,
+	/codecomp/RDM-03/.initial = Dimensionner une pièce en torsion,
+	/codecomp/RDM-04/.initial = Dimensionner une pièce en flexion,
+	/codecomp/RDM-05/.initial = Déterminer les déformations d'une pièce,
+	/codecomp/ELEC-00/.initial = Dimensionnement des moteurs électriques et de leur commande,
+	/codecomp/ELEC-01/.initial = Modélisation des circuits électriques en régime continu,
+	/codecomp/ELEC-02/.initial = Modélisation des circuits électriques en régime sinusoïdal,
+	/codecomp/ELEC-03/.initial = Dimensionnement des préactionneurs,
+	/codecomp/ELEC-04/.initial = Dimensionnement des moteurs à courant continu,
+	/codecomp/ELEC-05/.initial = Dimensionnement des moteurs alternatifs,
+	/codecomp/PPM-00/.initial = Concevoir et fabriquer des produits,
+	/codecomp/PPM-01/.initial = Concevoir et représenter des produits,
+	/codecomp/PPM-02/.initial = Choisir des matériaux,
+	/codecomp/PPM-03/.initial = Choisir des procédés d'obtention des produits,
 }
 
 \newcommand{\compForCodecomp}[2]{\xpComp{#1}{#2} \pgfkeysvalueof{/codecomp/#1-#2}}
