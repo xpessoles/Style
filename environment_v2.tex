@@ -522,8 +522,10 @@
   /stringcolor/SYS/.initial = teal,
   /stringcolor/CT/.initial = violet,
   /stringcolor/RDM/.initial = lime,
-   /stringcolor/ELEC/.initial = gray,
-   /stringcolor/PPM/.initial = gray,
+  /stringcolor/ELEC/.initial = gray,
+  /stringcolor/PPM/.initial = gray,
+  /stringcolor/A/.initial = red,
+  /stringcolor/B/.initial = green,
 }
 
 % pour avoir la couleur
@@ -564,6 +566,7 @@ boxrule=0pt,bottomrule=1pt,toprule=1pt}
 }
 
 \newcommand{\CommaXp}{, }
+
 \pgfkeys{
     /codecomp/.is family, /codecomp,
     /codecomp/.unknown/.code = {\pgfkeyssetvalue{/codecomp/#1}{#1}},
@@ -665,6 +668,12 @@ boxrule=0pt,bottomrule=1pt,toprule=1pt}
 	/codecomp/PPM-01/.initial = Concevoir et représenter des produits,
 	/codecomp/PPM-02/.initial = Choisir des matériaux,
 	/codecomp/PPM-03/.initial = Choisir des procédés d'obtention des produits,
+	/codecomp/A-03/.initial = Concevoir un algorithme utilisant une structure itérative (while),
+	/codecomp/A-04/.initial = Concevoir un algorithme utilisant une structure itérative (for),
+	/codecomp/A-06/.initial = Concevoir une fonction,
+	/codecomp/A-07/.initial = Manipuler des listes,
+	/codecomp/A-14/.initial = Utiliser des modules de bibliothèques,
+	/codecomp/B-01/.initial = Instruction et expression,
 }
 
 \newcommand{\compForCodecomp}[2]{\xpComp{#1}{#2} \pgfkeysvalueof{/codecomp/#1-#2}}
