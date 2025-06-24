@@ -527,9 +527,10 @@
   /stringcolor/A/.initial = red,
   /stringcolor/B/.initial = green,
   /stringcolor/C/.initial = blue,
+  /stringcolor/E/.initial = cyan,
 }
 
-% pour avoir la couleur
+% pour avoir la couleurw
 \newcommand{\colorForText}[1]{\pgfkeysvalueof{/stringcolor/#1}}
 % la boîte
 \newtcbox{\mybox}[1]{on line,
@@ -682,12 +683,18 @@ boxrule=0pt,bottomrule=1pt,toprule=1pt}
 	/codecomp/B-02/.initial = Effet de bord,
 	/codecomp/B-03/.initial = Spécifier une fonction,
 	/codecomp/B-04/.initial = Utiliser une assertion,
-	/codecomp/B-05/.initial = Expliciter et justifer des choix de conception,
+	/codecomp/B-05/.initial = Expliciter et justifier des choix de conception,
 	/codecomp/B-06/.initial = Jeu de test associé à un programme,
-	/codecomp/C-01/.initial = Prouver la terminaison d'un algorithme.,
+	/codecomp/C-01/.initial = Prouver la terminaison d'un algorithme,
 	/codecomp/C-02/.initial = Prouver la correction d'un algorithme,
 	/codecomp/C-03/.initial = Démontrer la complexité d'un algorithme,
-	/codecomp/C-04/.initial = Analyser l'évolution des variables d'un algorithme
+	/codecomp/C-04/.initial = Analyser l'évolution des variables d'un algorithme,
+	/codecomp/E-00/.initial = Bases des graphes,
+	/codecomp/E-01/.initial = Vocabulaire des graphes,
+	/codecomp/E-02/.initial = Notation des graphes,
+	/codecomp/E-03/.initial = Pondération des graphes,
+	/codecomp/E-04/.initial = Parcours d'un graphe,
+	/codecomp/E-05/.initial = Recherche d'un plus court chemin dans un graphe pondéré
 }
 
 \newcommand{\compForCodecomp}[2]{\xpComp{#1}{#2} \pgfkeysvalueof{/codecomp/#1-#2}}
