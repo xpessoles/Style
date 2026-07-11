@@ -1,5 +1,8 @@
 \ProvidesPackage{kao}
 
+%% Modif XP
+\RequirePackage[french]{babel} 
+
 %----------------------------------------------------------------------------------------
 %	DECLARE KAO
 %----------------------------------------------------------------------------------------
@@ -193,8 +196,8 @@
 	\newgeometry{
 		top=27.4\vscale,
 		bottom=27.4\vscale,
-		inner=24.8\hscale,
-		textwidth=107\hscale,
+		inner=14.8\hscale, % 24.8
+		textwidth=127\hscale, % 107
 		marginparsep=6.2\hscale,
 		marginparwidth=47.7\hscale,
 	}%
@@ -304,7 +307,84 @@
 	{\makebox[\textwidth][l]{\thepage}}%
 }
 
-% Header style with an empty header and the page number in the footer
+
+
+
+\newpagestyle{xp.test}{%
+	%%% HAUTS DE PAGE %%%
+	% PAGES PAIRES
+	{\colorbox{red}{A} }%
+	%
+	%% PAGES IMPAIRES
+	{B}%
+	{C}%
+}{%	
+	%%% BAS DE PAGE %%%
+	% PAGES PAIRES
+	{\colorbox{red}{D}}%
+	%% PAGES IMPAIRES
+	{E}%
+	{F}%
+}
+
+
+
+
+\definecolor{bleuxp}{RGB}{0,84,127}
+\definecolor{bleuxpc}{RGB}{234,243,245}
+
+
+
+% En tetes et pieds de page Xavier
+\newpagestyle{xp.scrheadings}{%
+	{\smash{\hspace{-\headmarginparwidth}\hspace{-\headmarginparsep}\makebox[\headtotal][l]{%
+		\makebox[7\hscale][r]{\textcolor{bleuxp}{\thepage}}%
+		\makebox[3\hscale]{}\textcolor{bleuxp}{\rule[-1mm]{0.5pt}{19\vscale-1mm}}\makebox[3\hscale]{}%
+		\makebox[\headtextwidth][l]{\textcolor{bleuxp}{\leftmark}}}}}%
+	{\smash{\makebox[0pt][l]{\makebox[\headtotal][r]{%
+		\makebox[\headtextwidth][r]{\hfill\textcolor{bleuxp}{\rightmark}}%
+		\makebox[3\hscale]{}\textcolor{bleuxp}{\rule[-1mm]{0.5pt}{19\vscale-1mm}}\makebox[3\hscale]{}%
+		\makebox[7\hscale][l]{\textcolor{bleuxp}{\thepage}}}}}}%
+	{\smash{\makebox[0pt][l]{\makebox[\headtotal][r]{%
+		\makebox[\headtextwidth][r]{\hfill\textcolor{bleuxp}{\rightmark}}%
+		\makebox[3\hscale]{}\rule[-1mm]{0.5pt}{19\vscale-1mm}\makebox[3\hscale]{}%
+		\makebox[7\hscale][l]{\textcolor{bleuxp}{\thepage}}}}}}%
+}{%Pages impaires puis paires puis ??
+	{\smash{\hspace{-\headmarginparwidth}\hspace{-\headmarginparsep}\makebox[\headtotal][l]{%
+		\makebox[7\hscale][r]{
+			\begin{tabular}{l}
+			\\ 
+			\\ \\ \includegraphics[width=1.5cm]{logo_lycee} \\ 
+			\end{tabular}
+			}%
+		\makebox[3\hscale]{}%\rule[-14mm]{0.5pt}{19\vscale-1mm}\makebox[3\hscale]{}%
+		\makebox[\headtextwidth][l]{
+			\begin{tabular}{l} 
+			\\ \\ \\ \textcolor{bleuxp}{\auteur} \\ 
+			\textcolor{bleuxp}{\discipline}
+			\end{tabular}
+			}}}}%
+	{\smash{\makebox[0pt][l]{\makebox[\headtotal][r]{%
+		\makebox[\headtextwidth][r]{
+			\hfill 
+			\begin{tabular}{r}
+			\\ \\ \\ \textcolor{bleuxp}{\auteur} \\ 
+			\textcolor{bleuxp}{\discipline}
+			\end{tabular}
+			}%
+		\makebox[3\hscale]{}%\rule[-14mm]{0.5pt}{19\vscale-1mm}\makebox[3\hscale]{}%
+		\makebox[7\hscale][l]{
+		\begin{tabular}{c}
+			\\ \\ \\ \includegraphics[width=1.5cm]{logo_lycee} \\ 
+			\end{tabular}
+		}}}}}%
+	{\smash{\makebox[0pt][l]{\makebox[\headtotal][r]{%
+		\makebox[\headtextwidth][r]{\hfill\rightmark}%
+		\makebox[3\hscale]{}\rule[-1mm]{0.5pt}{19\vscale-1mm}\makebox[3\hscale]{}%
+		\makebox[7\hscale][l]{ICI1}}}}}%
+}
+
+
 \newpagestyle{centeredpagenum.scrheadings}{%
 	{}%
 	{}%
@@ -526,49 +606,22 @@
 %	FIGURES, TABLES, LISTINGS AND CAPTIONS
 %----------------------------------------------------------------------------------------
 
-\DeclareStringOption[listings]{listing}
-
-\ProcessKeyvalOptions{kao}
-
-\newif\iflistings
-\newif\ifminted
-\ifthenelse{\equal{listings}{\kao@listing}}{
-	\listingstrue
-	\mintedfalse
-	\newcommand{\kao@listingfloattype}{lstlisting}
-}{\ifthenelse{\equal{minted}{\kao@listing}}{
-	\listingsfalse
-	\mintedtrue
-	\newcommand{\kao@listingfloattype}{listing}
-}{
-	\PackageError{kao}{%
-		Invalid listing choice \kao@listing.%
-	}{%
-		Should be one of "listings" or "minted"%
-	}
-}}
-
 \RequirePackage{graphicx} % Include figures
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio} % Improves figure scaling
 \RequirePackage{tikz} % Allows to draw custom shapes
 \RequirePackage{tikzpagenodes} % Allows to anchor tikz nodes to page elements
-\RequirePackage[hypcap=true]{caption} % Correctly placed anchors for hyperlinks
-\RequirePackage{floatrow} % Set up captions of floats
 \RequirePackage{booktabs} % Nicer tables
 \RequirePackage{multirow} % Cells occupying multiple rows in tables
 \RequirePackage{multicol} % Multiple columns in dictionary
 \RequirePackage{rotating} % Allows tables and figures to be rotated
-\iflistings
-	\RequirePackage{listings} % Print code listings
-\fi
-\ifminted
-	\RequirePackage{minted} % (must be loaded after floatrow and before scrhack)
-	\AtBeginDocument{\counterwithin{listing}{chapter}}
-\fi
+\RequirePackage{listings} % Print code listings
+%\RequirePackage{minted}
+\RequirePackage[hypcap=true]{caption} % Correctly placed anchors for hyperlinks
 % \RequirePackage{atbegshi}
 % \RequirePackage{perpage}
 \let\c@abspage\relax
 % \newcommand{\pp@g@sidenote}{}
+\RequirePackage{floatrow} % Set up captions of floats
 %\RequirePackage{dblfloatfix} % Better positioning of wide figures and tables
 
 % Improve the figure placing (see https://www.overleaf.com/learn/latex/Tips)
@@ -636,7 +689,7 @@
 	\marginskip{\kaomarginskipabove}%
 	\begin{lrbox}{\@sidenotes@marginlistingbox}%
 	\begin{minipage}{\marginparwidth}%
-		\captionsetup{type=\kao@listingfloattype, format=margin}%
+		\captionsetup{type=lstlisting}%
 }{%
 	\end{minipage}%
 	\end{lrbox}%
@@ -705,7 +758,7 @@
 \DeclareCaptionFormat{llap}{%
 	\begin{lrbox}{\mycap}%
 	\begin{minipage}{\marginparwidth}%
-	\@margin@par #1#2#3%
+	\@margin@par #1:#2#3%
 	\end{minipage}%
 	\end{lrbox}%
 	\marginnote[0.2cm]{\usebox\mycap}%
@@ -713,7 +766,6 @@
 % Set the global caption style
 \captionsetup{
 	format=margin, % Use the style previously declared
-        labelsep=colon,
 	strut=no,%
 	%hypcap=true, % Links point to the top of the figure
 	singlelinecheck=false,%
@@ -728,110 +780,137 @@
 \DeclareCaptionLabelFormat{cont}{#1~#2\alph{ContinuedFloat}}
 \captionsetup[ContinuedFloat]{labelformat=cont}
 
-\DeclareFloatStyle{kaofloat}{
-	capposition=beside,%
-	capbesideframe=yes,%
-	capbesidewidth=\marginparwidth,% Width of the caption equal to the width of the margin
-	capbesidesep=marginparsep,%
-	floatwidth=\textwidth,% Width of the figure equal to the width of the text
-}
-
 % Captions for the 'margin' layout
 \NewDocumentCommand{\marginfloatsetup}{}{%
 \if@twoside%
 	\floatsetup[figure]{% Captions for figures
-		style=kaofloat,%
-		margins=hangoutside,%
+		margins=hangoutside,% Put captions in the margins
 		facing=yes,%
-		capbesideposition={bottom,outside},% Put captions in the margin
+		capposition=beside,%
+		capbesideposition={bottom,outside},%
+		capbesideframe=yes,%
+		capbesidewidth=\marginparwidth,% Width of the caption equal to the width of the margin
+		capbesidesep=marginparsep,%
+		floatwidth=\textwidth,% Width of the figure equal to the width of the text
 	}%
 	\floatsetup[widefigure]{% Captions for wide figures
-		margins=hangoutside,%
+		margins=hangoutside,% Put captions below the figure
 		facing=yes,%
-		capposition=bottom,% Put captions below the figure
+		capposition=bottom%
 	}%
 	\floatsetup[table]{% Captions for tables
-		style=kaofloat,%
-		margins=hangoutside,%
+		margins=hangoutside,% Put captions in the margin
 		facing=yes,%
-		capbesideposition={top,outside},% Put captions in the margin
+		capposition=beside,%
+		capbesideposition={top,outside},%
+		%capbesideposition=outside,
+		capbesideframe=yes,%
+		capbesidewidth=\marginparwidth,% Width of the caption equal to the width of the margin
+		capbesidesep=marginparsep,%
+		floatwidth=\textwidth,% Width of the figure equal to the width of the text
 	}%
 	\floatsetup[widetable]{% Captions for wide tables
-		margins=hangoutside,%
+		margins=hangoutside,% Put captions above the table
 		facing=yes,%
-		capposition=above,% Put captions above the table
+		capposition=above%
 	}%
 	\floatsetup[longtable]{% Captions for longtables
 		margins=raggedright,% Overwrite the hangright setting from the `table' environment
 		%LTcapwidth=table,% Set the width of the caption equal to the table's
 	}%
 	\floatsetup[lstlisting]{% Captions for lstlistings
-		style=kaofloat,%
-		margins=hangoutside,%
+		margins=hangoutside,% Put captions in the margin
 		facing=yes,%
-		capbesideposition={top,outside},% Put captions in the margin
+		capposition=beside,%
+		capbesideposition={top,outside},%
+		%capbesideposition=outside,
+		capbesideframe=yes,%
+		capbesidewidth=\marginparwidth,% Width of the caption equal to the width of the margin
+		capbesidesep=marginparsep,%
+		floatwidth=\textwidth,% Width of the figure equal to the width of the text
 	}%
 	\floatsetup[listing]{% Captions for listings (minted package)
-		style=kaofloat,%
-		margins=hangoutside,%
+		margins=hangoutside,% Put captions in the margin
 		facing=yes,%
-		capbesideposition={top,outside},% Put captions in the margin
+		capposition=beside,%
+		capbesideposition={top,outside},%
+		%capbesideposition=outside,
+		capbesideframe=yes,%
+		capbesidewidth=\marginparwidth,% Width of the caption equal to the width of the margin
+		capbesidesep=marginparsep,%
+		floatwidth=\textwidth,%Width of the figure equal to the width of the text
 	}%
-	\floatsetup[widelisting]{ % Captions for wide listings (minted package)
-		margins=hangoutside,%
-		facing=yes,%
-		capposition=above% Put captions above the listings
+	\captionsetup*[lstlisting]{%
+		format=llap,%
+		labelsep=space,%
+		singlelinecheck=no,%
+		belowskip=-0.6cm,%
 	}%
 \else%
 	\floatsetup[figure]{% Captions for figures
-		style=kaofloat,%
-		margins=hangright,%
+		margins=hangright,% Put captions in the margins
 		facing=yes,%
-		capbesideposition={bottom,right},% Put captions in the margins
+		capposition=beside,%
+		capbesideposition={bottom,right},%
+		capbesideframe=yes,%
+		capbesidewidth=\marginparwidth,% Width of the caption equal to the width of the margin
+		capbesidesep=marginparsep,%
+		floatwidth=\textwidth,% Width of the figure equal to the width of the text
 	}%
 	\floatsetup[widefigure]{% Captions for wide figures
-		margins=hangright,%
+		margins=hangright,% Put captions below the figure
 		facing=no,%
-		capposition=bottom,% Put captions below the figure
+		capposition=bottom%
 	}%
 	\floatsetup[table]{% Captions for tables
-		style=kaofloat,%
-		margins=hangright,%
+		margins=hangright,% Put captions in the margin
 		facing=yes,%
-		capbesideposition={top,right},% Put captions in the margin
+		capposition=beside,%
+		capbesideposition={top,right},%
+		%capbesideposition=outside,
+		capbesideframe=yes,%
+		capbesidewidth=\marginparwidth,% Width of the caption equal to the width of the margin
+		capbesidesep=marginparsep,%
+		floatwidth=\textwidth,% Width of the figure equal to the width of the text
 	}%
 	\floatsetup[widetable]{% Captions for wide tables
-		margins=hangright,%
+		margins=hangright,% Put captions above the table
 		facing=no,%
-		capposition=above,% Put captions above the table
+		capposition=above%
 	}%
 	\floatsetup[longtable]{% Captions for longtables
 		margins=raggedright,% Overwrite the hangright setting from the `table' environment
 		%LTcapwidth=table,% Set the width of the caption equal to the table's
 	}%
 	\floatsetup[lstlisting]{% Captions for lstlisting
-		style=kaofloat,%
-		margins=hangright,%
+		margins=hangright,% Put captions in the margin
 		facing=yes,%
-		capbesideposition={top,right},% Put captions in the margin
+		capposition=beside,%
+		capbesideposition={top,right},%
+		%capbesideposition=outside,
+		capbesideframe=yes,%
+		capbesidewidth=\marginparwidth,% Width of the caption equal to the width of the margin
+		capbesidesep=marginparsep,%
+		floatwidth=\textwidth,% Width of the figure equal to the width of the text
 	}%
 	\floatsetup[listing]{% Captions for listing (minted package)
-		style=kaofloat,%
-		margins=hangright,%
+		margins=hangright,% Put captions in the margin
 		facing=yes,%
-		capbesideposition={top,right},% Put captions in the margin
+		capposition=beside,%
+		capbesideposition={top,right},%
+		%capbesideposition=outside,
+		capbesideframe=yes,%
+		capbesidewidth=\marginparwidth,% Width of the caption equal to the width of the margin
+		capbesidesep=marginparsep,%
+		floatwidth=\textwidth,% Width of the figure equal to the width of the text
 	}%
-	\floatsetup[widelisting]{ % Captions for wide listings (minted package)
-		margins=hangright,%
-		facing=no,%
-		capposition=above% Put captions above the listings
+	\captionsetup*[lstlisting]{%
+		format=llap,%
+		labelsep=space,%
+		singlelinecheck=no,%
+		belowskip=-0.6cm,%
 	}%
 \fi%
-\captionsetup*[lstlisting]{%
-	format=llap,%
-	singlelinecheck=no,%
-	belowskip=-0.6cm,%
-}%
 }
 
 % Captions for the 'wide' layout
@@ -868,6 +947,7 @@
 	}
 	\captionsetup*[lstlisting]{% Captions style for lstlistings
 		%format=margin,%
+		labelsep=colon,%
 		strut=no,%
 		singlelinecheck=false,%
 		indention=0pt,%
@@ -877,65 +957,6 @@
 		belowskip=-0.1cm%
 	}
 }
-
-\iflistings
-% Configure the listings
-\definecolor{listingkeywords}{rgb}{0.0, 0.5, 0.0}
-\definecolor{listingidentifiers}{rgb}{0, 0, 0}
-\definecolor{listingcomments}{rgb}{0.25, 0.5, 0.5}
-\definecolor{listingstrings}{rgb}{0.73, 0.13, 0.13}
-\definecolor{listingnumbers}{rgb}{0.25, 0.25, 0.25}
-% Define a fancy style
-\lstdefinestyle{kaolst}{
-	aboveskip=0.7\topskip,
-	belowskip=0.1\topskip,
-	basicstyle=\small\ttfamily,
-	commentstyle=\color{listingcomments}\itshape,
-	keywordstyle=\color{listingkeywords}\bfseries,
-	numberstyle=\scriptsize\color{listingnumbers}\ttfamily,
-	stringstyle=\color{listingstrings},
-	identifierstyle=\color{listingidentifiers},
-	backgroundcolor=\color{White},
-	breakatwhitespace=false,
-	breaklines=true,
-	captionpos=t,
-	keepspaces=true,
-	showspaces=false,
-	showstringspaces=false,
-	showtabs=false,
-	numbers=left,
-	numbersep=1em,
-	%frame=lines,
-	frame=l,
-	framerule=.7pt,
-	tabsize=4,
-	defaultdialect=[LaTeX]Tex,
-}
-% Define a plain style as well
-\lstdefinestyle{kaolstplain}{
-	aboveskip=0.6\topskip,
-	belowskip=-0.1\topskip,
-	basicstyle=\small\ttfamily,
-	commentstyle=\color{listingcomments}\itshape,
-	keywordstyle=\color{listingkeywords}\bfseries,
-	numberstyle=\scriptsize\color{listingnumbers}\ttfamily,
-	stringstyle=\color{listingstrings},
-	identifierstyle=\color{listingidentifiers},
-	backgroundcolor=\color{White},
-	breakatwhitespace=false,
-	breaklines=true,
-	captionpos=b,
-	keepspaces=true,
-	showspaces=false,
-	showstringspaces=false,
-	showtabs=false,
-	numbers=none,
-	frame=none,
-	tabsize=4,
-	defaultdialect=[LaTeX]Tex,
-}
-\lstset{style=kaolst}% Use the fancy style
-\fi
 
 %----------------------------------------------------------------------------------------
 %	TOC, LOF & LOT
@@ -950,25 +971,19 @@
 \setcounter{tocdepth}{\subsectiontocdepth}
 
 % Customise the list of listings
+\renewcommand{\lstlistlistingname}{List of Listings}% Change the title
 \newcommand{\lstlistingtocdepth}{\sectiontocdepth}% Set the depth
-\iflistings
-	\renewcommand{\lstlistlistingname}{List of Listings}% Change the title
-	\newcommand{\listoflistings}{\lstlistoflistings}% Provide the alias \listoflistings
-	\newcommand{\listoflstlistings}{\lstlistoflistings}% Provide the alias \listoflstlistings
-\fi
-\ifminted
-	\newcommand{\lstlistoflistings}{\listoflistings}% Provide the alias \lstlistoflistings
-	\newcommand{\listoflstlistings}{\listoflistings}% Provide the alias \listoflstlistings
-\fi
+\newcommand{\listoflistings}{\lstlistoflistings}% Provide the alias \listoflistings
+\newcommand{\listoflstlistings}{\lstlistoflistings}% Provide the alias \listoflstlistings
 
 % Define the style for toc entries
 \@ifpackagelater{scrbase}{2019/10/11}{%
-	\DeclareTOCStyleEntries[level=1,indent=0em,numwidth=2em,dynnumwidth=yes,pagenumberwidth=2.1em]{tocline}{figure,table,lstlisting,listing}%
+	\DeclareTOCStyleEntries[indent=0em,numwidth=2em,dynnumwidth=yes,pagenumberwidth=2.1em]{tocline}{figure,table,lstlisting}%
 	\DeclareTOCStyleEntries[dynnumwidth=yes]{tocline}{subsubsection,subsection,section,chapter,part}%
 	\DeclareTOCStyleEntries[pagenumberwidth=2.5em]{tocline}{chapter,part}%
 	\DeclareTOCStyleEntries[pagenumberwidth=2.1em]{tocline}{subsubsection,subsection,section}%
 }{%
-	\DeclareTOCStyleEntries[indent=0em,numwidth=2em,dynnumwidth=yes]{tocline}{figure,table,lstlisting,listing}%
+	\DeclareTOCStyleEntries[indent=0em,numwidth=2em,dynnumwidth=yes]{tocline}{figure,table,lstlisting}%
 	\DeclareTOCStyleEntries[dynnumwidth=yes]{tocline}{subsubsection,subsection,section,chapter,part}%
 }
 
@@ -1259,13 +1274,13 @@
 % Uncomment to have coloured headings
 %\addtokomafont{title}{\color{Maroon}}
 %\addtokomafont{part}{\color{Maroon}}
-%\addtokomafont{chapter}{\color{Maroon}}
-%\addtokomafont{section}{\color{Maroon}}
+\addtokomafont{chapter}{\color{bleuxp}}
+\addtokomafont{section}{\color{bleuxp}}
 %\addtokomafont{subsection}{\color{Maroon}}
 %\addtokomafont{subsubsection}{\color{Maroon}}
 %\addtokomafont{paragraph}{\color{Maroon}}
-%\addtokomafont{captionlabel}{\color{Blue}}
-%\addtokomafont{pagenumber}{\color{Maroon}}
+\addtokomafont{captionlabel}{\color{bleuxp}}
+\addtokomafont{pagenumber}{\color{bleuxp}}
 
 % Choose the default colors
 \hypersetup{
@@ -1275,7 +1290,7 @@
 	citecolor=OliveGreen,
 	filecolor=OliveGreen,
 	%linkcolor=Blue,
-	linkcolor=Black,
+	linkcolor=bleuxp,
 	%pagecolor = Blue,
 	%menucolor=Red,
 	%runcolor=Red,
@@ -1378,6 +1393,67 @@
 \RequirePackage{pdfpages} % Insert PDF pages
 \RequirePackage{subfiles} % Adopt a modular structure
 \RequirePackage{todonotes} % Add useful notes in the margins
+
+% Listings code
+\RequirePackage{listings} % Code
+%\RequirePackage{minted} (must be loaded before scrhack)
+
+% Configure the listings
+\definecolor{listingkeywords}{rgb}{0.0, 0.5, 0.0}
+\definecolor{listingidentifiers}{rgb}{0, 0, 0}
+\definecolor{listingcomments}{rgb}{0.25, 0.5, 0.5}
+\definecolor{listingstrings}{rgb}{0.73, 0.13, 0.13}
+\definecolor{listingnumbers}{rgb}{0.25, 0.25, 0.25}
+% Define a fancy style
+\lstdefinestyle{kaolst}{
+	aboveskip=0.7\topskip,
+	belowskip=0.1\topskip,
+	basicstyle=\small\ttfamily,
+	commentstyle=\color{listingcomments}\itshape,
+	keywordstyle=\color{listingkeywords}\bfseries,
+	numberstyle=\scriptsize\color{listingnumbers}\ttfamily,
+	stringstyle=\color{listingstrings},
+	identifierstyle=\color{listingidentifiers},
+	backgroundcolor=\color{White},
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=t,
+	keepspaces=true,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	numbers=left,
+	numbersep=1em,
+	%frame=lines,
+	frame=l,
+	framerule=.7pt,
+	tabsize=4,
+	defaultdialect=[LaTeX]Tex,
+}
+% Define a plain style as well
+\lstdefinestyle{kaolstplain}{
+	aboveskip=0.6\topskip,
+	belowskip=-0.1\topskip,
+	basicstyle=\small\ttfamily,
+	commentstyle=\color{listingcomments}\itshape,
+	keywordstyle=\color{listingkeywords}\bfseries,
+	numberstyle=\scriptsize\color{listingnumbers}\ttfamily,
+	stringstyle=\color{listingstrings},
+	identifierstyle=\color{listingidentifiers},
+	backgroundcolor=\color{White},
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	numbers=none,
+	frame=none,
+	tabsize=4,
+	defaultdialect=[LaTeX]Tex,
+}
+\lstset{style=kaolst}% Use the fancy style
 
 % Verbatim
 %\RequirePackage{fancyvrb} % Customization of verbatim environments
