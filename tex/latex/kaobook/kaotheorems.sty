@@ -130,6 +130,20 @@
 		%Refname={Theorem,Theorems},
 	]{kaoexercise}
 
+	\declaretheoremstyle[
+		%spaceabove=.5\thm@preskip,
+		%spacebelow=.5\thm@postskip,
+		%headfont=\normalfont\bfseries,
+		%notefont=\normalfont, notebraces={ (}{)},
+		%bodyfont=\small,
+		%headformat={\NAME\space\NUMBER\space\NOTE},
+		headpunct={},
+		postheadspace={.5em plus .1em minus .1em},
+		%prefoothook={\hfill\qedsymbol}
+		%refname={theorem,theorems},
+		%Refname={Theorem,Theorems},
+	]{kaoquestion}
+	
 	% Theorems using the 'kaoplain' style
 	\theoremstyle{kaoplain}
 	\declaretheorem[
@@ -239,7 +253,19 @@
 		colback=\kaotheorems@exercisebackground,tcbkao
 	}
 
-	%\renewcommand{\thetheorem}{\arabic{chapter}.\arabic{section}.\arabic{theorem}}
+%%%XP 	
+	\theoremstyle{kaoquestion}
+	\declaretheorem[
+		name=Question,
+		%refname={question,question},
+		refname={Question,Questions},
+		Refname={Question,Questions},
+		numberwithin=section,
+	]{question}
+	\tcolorboxenvironment{question}{
+		colback=\kaotheorems@questionbackground,tcbkao
+	}
+		%\renewcommand{\thetheorem}{\arabic{chapter}.\arabic{section}.\arabic{theorem}}
 	%\renewcommand{\thetheorem}{\arabic{subsection}.\arabic{theorem}}
 	%\renewcommand{\qedsymbol}{$\blacksquare$}
 \else % If not using mdframed
@@ -388,7 +414,12 @@
 		Refname={Exercise,Exercises},
 		numberwithin=section,
 	]{exercise}
-
+\declaretheorem[
+		name=Question,
+		refname={Question,Questions},
+		Refname={Question,Questions},
+		%numberwithin=chapter,
+	]{question}	
 	%\renewcommand{\thetheorem}{\arabic{chapter}.\arabic{section}.\arabic{theorem}}
 	%\renewcommand{\thetheorem}{\arabic{subsection}.\arabic{theorem}}
 	%\renewcommand{\qedsymbol}{$\blacksquare$}

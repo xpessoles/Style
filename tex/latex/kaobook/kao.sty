@@ -193,8 +193,8 @@
 	\newgeometry{
 		top=27.4\vscale,
 		bottom=27.4\vscale,
-		inner=24.8\hscale,
-		textwidth=107\hscale,
+		inner=14 \hscale, % XP 24.8
+		textwidth=128\hscale, % XP 107
 		marginparsep=6.2\hscale,
 		marginparwidth=47.7\hscale,
 	}%
@@ -293,6 +293,70 @@
 	{}%
 }
 
+
+
+
+
+
+
+
+\definecolor{bleuxp}{RGB}{0,84,127}
+\definecolor{bleuxpc}{RGB}{234,243,245}
+
+
+% En tetes et pieds de page Xavier
+\newpagestyle{xp.scrheadings}{%
+	{\smash{\hspace{-\headmarginparwidth}\hspace{-\headmarginparsep}\makebox[\headtotal][l]{%
+		\makebox[7\hscale][r]{\textcolor{bleuxp}{\thepage}}%
+		\makebox[3\hscale]{}\textcolor{bleuxp}{\rule[-1mm]{0.5pt}{19\vscale-1mm}}\makebox[3\hscale]{}%
+		\makebox[\headtextwidth][l]{\textcolor{bleuxp}{\leftmark}}}}}%
+	{\smash{\makebox[0pt][l]{\makebox[\headtotal][r]{%
+		\makebox[\headtextwidth][r]{\hfill\textcolor{bleuxp}{\rightmark}}%
+		\makebox[3\hscale]{}\textcolor{bleuxp}{\rule[-1mm]{0.5pt}{19\vscale-1mm}}\makebox[3\hscale]{}%
+		\makebox[7\hscale][l]{\textcolor{bleuxp}{\thepage}}}}}}%
+	{\smash{\makebox[0pt][l]{\makebox[\headtotal][r]{%
+		\makebox[\headtextwidth][r]{\hfill\textcolor{bleuxp}{\rightmark}}%
+		\makebox[3\hscale]{}\rule[-1mm]{0.5pt}{19\vscale-1mm}\makebox[3\hscale]{}%
+		\makebox[7\hscale][l]{\textcolor{bleuxp}{\thepage}}}}}}%
+}{%Pages impaires puis paires puis ??
+	{\smash{\hspace{-\headmarginparwidth}\hspace{-\headmarginparsep}\makebox[\headtotal][l]{%
+		\makebox[7\hscale][r]{
+			\begin{tabular}{l}
+			\\ 
+			\\ \\ \includegraphics[width=1.5cm]{logo_lycee} \\ 
+			\end{tabular}
+			}%
+		\makebox[3\hscale]{}%\rule[-14mm]{0.5pt}{19\vscale-1mm}\makebox[3\hscale]{}%
+		\makebox[\headtextwidth][l]{
+			\begin{tabular}{l} 
+			\\ \\ \\ \textcolor{bleuxp}{\auteur} \\ 
+			\textcolor{bleuxp}{\discipline}
+			\end{tabular}
+			}}}}%
+	{\smash{\makebox[0pt][l]{\makebox[\headtotal][r]{%
+		\makebox[\headtextwidth][r]{
+			\hfill 
+			\begin{tabular}{r}
+			\\ \\ \\ \textcolor{bleuxp}{\auteur} \\ 
+			\textcolor{bleuxp}{\discipline}
+			\end{tabular}
+			}%
+		\makebox[3\hscale]{}%\rule[-14mm]{0.5pt}{19\vscale-1mm}\makebox[3\hscale]{}%
+		\makebox[7\hscale][l]{
+		\begin{tabular}{c}
+			\\ \\ \\ \includegraphics[width=1.5cm]{logo_lycee} \\ 
+			\end{tabular}
+		}}}}}%
+	{\smash{\makebox[0pt][l]{\makebox[\headtotal][r]{%
+		\makebox[\headtextwidth][r]{\hfill\rightmark}%
+		\makebox[3\hscale]{}\rule[-1mm]{0.5pt}{19\vscale-1mm}\makebox[3\hscale]{}%
+		\makebox[7\hscale][l]{ICI1}}}}}%
+}
+
+
+
+
+
 % Header style with an empty header and the page number in the footer
 \newpagestyle{pagenum.scrheadings}{%
 	{}%
@@ -303,6 +367,8 @@
 	{\makebox[\textwidth][l]{\thepage}}%
 	{\makebox[\textwidth][l]{\thepage}}%
 }
+
+
 
 % Header style with an empty header and the page number in the footer
 \newpagestyle{centeredpagenum.scrheadings}{%
@@ -650,7 +716,8 @@
 % Detect whether there is a caption in the current environment by switching the kaocaption toggle when \caption is called. If there is no caption, reset the floatsetup. Without this fix, the floatrow package will align the environment to the main text if there is a caption, but to the margin if there is no caption.
 \newtoggle{kaocaption}
 \AtBeginEnvironment{figure}{%
-	\let\oldcaption\caption%
+	\NewCommandCopy\oldcaption\caption%  XP https://github.com/fmarotta/kaobook/issues/308<-------------- corrected
+	%\let\oldcaption\caption%
 	\RenewDocumentCommand{\caption}{s o m}{%
 		\IfBooleanTF{#1}{%
 			\oldcaption*{#3}%
@@ -1150,7 +1217,7 @@
 	]{Libertinus Sans}
 	\setmonofont[ % Libertinus Mono font
 		Scale=.89
-	]{Liberation Mono}
+	]{Libertinus Mono} %%% XP Changement de font
 	\setmathfont{Libertinus Math} % Libertinus Math font
 	\ifluatex
 	\else
@@ -1259,13 +1326,13 @@
 % Uncomment to have coloured headings
 %\addtokomafont{title}{\color{Maroon}}
 %\addtokomafont{part}{\color{Maroon}}
-%\addtokomafont{chapter}{\color{Maroon}}
-%\addtokomafont{section}{\color{Maroon}}
+\addtokomafont{chapter}{\color{bleuxp}}
+\addtokomafont{section}{\color{bleuxp}}
 %\addtokomafont{subsection}{\color{Maroon}}
 %\addtokomafont{subsubsection}{\color{Maroon}}
 %\addtokomafont{paragraph}{\color{Maroon}}
-%\addtokomafont{captionlabel}{\color{Blue}}
-%\addtokomafont{pagenumber}{\color{Maroon}}
+\addtokomafont{captionlabel}{\color{bleuxp}}
+\addtokomafont{pagenumber}{\color{bleuxp}}
 
 % Choose the default colors
 \hypersetup{
@@ -1275,7 +1342,7 @@
 	citecolor=OliveGreen,
 	filecolor=OliveGreen,
 	%linkcolor=Blue,
-	linkcolor=Black,
+	linkcolor=bleuxp,
 	%pagecolor = Blue,
 	%menucolor=Red,
 	%runcolor=Red,
