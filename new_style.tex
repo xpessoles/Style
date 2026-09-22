@@ -274,14 +274,28 @@
 
 
 %% Questions et exercices
-\newcounter{numques}%Création d'un compteur qui s'appelle numques
-\setcounter{numques}{0}%initialisation du compteur
+% \newcounter{numques}%Création d'un compteur qui s'appelle numques
+% \setcounter{numques}{0}%initialisation du compteur
 
-\newcommand{\question}[1]{%Création d'une macro ayant un paramètre
-\refstepcounter{numques}
+% \newcommand{\question}[1]{%Création d'une macro ayant un paramètre
+% \refstepcounter{numques}
 %\addtocounter{numques}{1}%chaque fois que cette macro est appelée, elle ajoute 1 au compteur numexos
-\vspace{.15cm}
-\textbf{\indent Question\, \textcolor{bleuxp}{\thenumques}\,}\,\textit{#1}\\{\vspace{0cm}}}
+% \vspace{.15cm}
+% \textbf{\indent Question\, \textcolor{bleuxp}{\thenumques}\,}\,\textit{#1}\\{\vspace{0cm}}}
+
+
+\newcounter{numques}
+\newenvironment{question}
+{%
+    \refstepcounter{numques}%
+    \vspace{.15cm}%
+    \textbf{\indent Question\,\textcolor{bleuxp}{\thenumques}\,}%
+    \textit\bgroup
+}
+{%
+    \egroup
+}
+
 
 
 \newcounter{numexo}%Création d'un compteur qui s'appelle numques
